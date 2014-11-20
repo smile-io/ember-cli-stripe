@@ -1,4 +1,4 @@
-# Ember-cli-stripe-checkout
+# Ember-cli-stripe
 
 This README outlines the details of collaborating on this Ember addon.
 

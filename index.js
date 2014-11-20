@@ -1,5 +1,5 @@
 'use strict';
 
 module.exports = {
-  name: 'ember-cli-stripe-checkout'
+  name: 'ember-cli-stripe'
 };
