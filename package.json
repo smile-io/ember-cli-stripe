@@ -1,6 +1,8 @@
 {
   "name": "ember-cli-stripe",
   "version": "0.0.0",
+  "description": "Stripe checkout for Ember",
+  "author": "Bill Curtis <wcurtis@sweettoothhq.com>",
   "directories": {
     "doc": "doc",
     "test": "tests"
@@ -10,12 +12,18 @@
     "build": "ember build",
     "test": "ember test"
   },
-  "repository": "https://github.com/stefanpenner/ember-cli",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/sweettooth/ember-cli-stripe"
+  },
+  "bugs": {
+    "url": "https://github.com/sweettooth/ember-cli-stripe/issues"
+  },
   "engines": {
     "node": ">= 0.10.0"
   },
-  "author": "",
   "license": "MIT",
+  "homepage": "https://github.com/sweettooth/ember-cli-stripe",
   "devDependencies": {
     "body-parser": "^1.2.0",
     "broccoli-asset-rev": "0.3.1",
@@ -32,7 +40,10 @@
   },
   "keywords": [
     "ember-addon",
-    "stripe"
+    "stripe",
+    "stripe.js",
+    "stripejs",
+    "sweettooth"
   ],
   "ember-addon": {
     "configPath": "tests/dummy/config"
