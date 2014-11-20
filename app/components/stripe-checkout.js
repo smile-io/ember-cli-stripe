@@ -16,6 +16,8 @@ import config from '../config/environment';
  * TODO:
  * Implement opened/closed callbacks as actions
  * Support default stripe styles
+ * Log error if no stripe key given
+ * Tests
  */
 export default Ember.Component.extend({
   tagName: 'button',
@@ -164,7 +166,6 @@ export default Ember.Component.extend({
 
     var handler = StripeCheckout.configure({
       key: this.get('key'),
-      image: this.get('image'),
       token: function(token) {
         self.sendAction('action', token);
       }
@@ -184,12 +185,19 @@ export default Ember.Component.extend({
    * Opens the Stripe modal for payment
    */
   openModal: function() {
-    this.get('handler').open({
-      name: this.get('name'),
-      description: this.get('description'),
-      amount: this.get('amount'),
-      panelLabel: this.get('panelLabel')
-    });
+    var options = this.getProperties([
+      'image',
+      'name',
+      'description',
+      'amount',
+      'currency',
+      'panelLabel',
+      'zipCode',
+      'email',
+      'label',
+      'allowRememberMe'
+    ]);
+    this.get('handler').open(options);
   },
 
   willDestroy: function() {
