@@ -1,6 +1,6 @@
 {
   "name": "ember-cli-stripe",
-  "version": "0.0.0",
+  "version": "0.1.0",
   "description": "Stripe checkout for Ember",
   "author": "Bill Curtis <wcurtis@sweettoothhq.com>",
   "directories": {
