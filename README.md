@@ -1,25 +1,56 @@
-# Ember-cli-stripe
+# Stripe checkout for Ember
 
-This README outlines the details of collaborating on this Ember addon.
+## Description
+This component is an ember-cli addon which adds Stripe checkout functionality to your app. See https://stripe.com/docs/checkout
 
 ## Installation
+```sh
+npm install ember-cli-stripe --save-dev
+```
 
-* `git clone` this repository
-* `npm install`
-* `bower install`
+## Setup
+```javascript
+// config/environment.js
+ENV.stripe = {
+  key: "sk_test_BQokikJOvBiI2HlWgH4olfQ2"
+}
+```
 
-## Running
+## Usage
 
-* `ember server`
-* Visit your app at http://localhost:4200.
+### Basic Usage
+```handlebars
+{{stripe-checkout
+  image="/square-image.png"
+  name="Demo Site"
+  description="2 widgets ($20.00)"
+  amount=2000
+  action="processStripeToken"
+}}
+```
 
-## Running Tests
+### Heavier Usage
+```handlebars
+{{stripe-checkout
+  class="btn btn-primary"
+  image="/images/logo.png"
+  name="Sweet Tooth"
+  description=selectedPlan.name
+  amount=selectedPlan.price_cents 
+  panelLabel="Subscribe for {{amount}}/mo"
+  isDisabled=payButtonDisabled
+  action="processStripeToken"
+}}
+```
 
-* `ember test`
-* `ember test --server`
+## Options
+All options from https://stripe.com/docs/checkout are supported
 
-## Building
+## Contributing
+PRs welcome!
 
-* `ember build`
-
-For more information on using ember-cli, visit [http://www.ember-cli.com/](http://www.ember-cli.com/).
+## TODO
+* Add tests
+* Implement opened/closed callbacks as actions
+* Support default stripe styles
+* Fail loudly if no stripe key given

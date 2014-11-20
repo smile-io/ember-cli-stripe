@@ -12,12 +12,6 @@ import config from '../config/environment';
  *   description=billingPlan.description 
  *   amount=billingPlan.amount
  * }}
- *
- * TODO:
- * Implement opened/closed callbacks as actions
- * Support default stripe styles
- * Log error if no stripe key given
- * Tests
  */
 export default Ember.Component.extend({
   tagName: 'button',
