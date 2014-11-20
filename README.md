@@ -1,5 +1,7 @@
 # Stripe checkout for Ember
 
+![Preview](https://www.sweettoothrewards.com/wp-content/uploads/stripe-checkout.png)
+
 ## Description
 This component is an ember-cli addon which adds Stripe checkout functionality to your app. See https://stripe.com/docs/checkout
 
