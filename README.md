@@ -17,7 +17,7 @@ Add your Stripe **publishable key** to your app's config
 // config/environment.js
 ENV.stripe = {
   key: "pk_test_C0sa3IlkLWBlrB8laH2fbqfh"
-}
+};
 ```
 
 ## Usage

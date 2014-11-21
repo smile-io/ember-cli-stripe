@@ -44,7 +44,8 @@
     "andThen",
     "currentURL",
     "currentPath",
-    "currentRouteName"
+    "currentRouteName",
+    "StripeCheckout"
   ],
   "node": false,
   "browser": false,

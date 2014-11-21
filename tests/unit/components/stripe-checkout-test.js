@@ -19,3 +19,12 @@ test('it renders', function() {
   this.append();
   equal(component._state, 'inDOM');
 });
+
+test('it renders default text', function() {
+  expect(1);
+  
+  var component = this.subject();
+  this.append();
+
+  equal($.trim($('.stripe-checkout').text()), "Pay with card");
+});
