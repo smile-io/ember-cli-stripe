@@ -162,6 +162,12 @@ export default Ember.Component.extend({
       key: this.get('key'),
       token: function(token) {
         self.sendAction('action', token);
+      },
+      opened: function() {
+        self.sendAction('opened');
+      },
+      closed: function() {
+        self.sendAction('closed');
       }
     });
     this.set('handler', handler);
