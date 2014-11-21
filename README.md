@@ -14,7 +14,7 @@ npm install ember-cli-stripe --save-dev
 ```javascript
 // config/environment.js
 ENV.stripe = {
-  key: "sk_test_BQokikJOvBiI2HlWgH4olfQ2"
+  key: "pk_test_C0sa3IlkLWBlrB8laH2fbqfh"
 }
 ```
 
