@@ -11,6 +11,8 @@ npm install ember-cli-stripe --save-dev
 ```
 
 ## Setup
+Add your Stripe **publishable key** to your app's config
+
 ```javascript
 // config/environment.js
 ENV.stripe = {
