@@ -1,4 +1,5 @@
-# Stripe checkout for Ember
+# Stripe checkout for Ember [![Build Status](https://travis-ci.org/sweettooth/ember-cli-stripe.svg?branch=master)](http://travis-ci.org/sweettooth/ember-cli-stripe)
+
 
 ![Preview](https://www.sweettoothrewards.com/wp-content/uploads/stripe-checkout.png)
 
@@ -73,9 +74,3 @@ All options from https://stripe.com/docs/checkout are supported
 
 ## Contributing
 PRs welcome!
-
-## TODO
-* Add tests
-* Implement opened/closed callbacks as actions
-* Support default stripe styles
-* Fail loudly if no stripe key given
