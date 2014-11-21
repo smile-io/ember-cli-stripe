@@ -20,11 +20,37 @@ test('it renders', function() {
   equal(component._state, 'inDOM');
 });
 
-test('it renders default text', function() {
+test('it renders with the default text', function() {
   expect(1);
   
   var component = this.subject();
   this.append();
 
   equal($.trim($('.stripe-checkout').text()), "Pay with card");
+});
+
+/**
+ * These tests are stubbed out until I'm able to learn how to test Ember
+ * addons properly - documentation is sparse right now and I'm quite new
+ * to qunit.
+ * At the very least, these test stubs should help describe expected behaviour
+ */
+test('it sends the opened action when the Stripe modal opens', function() {
+  expect(0);
+  // TODO
+});
+
+test('it sends the closed action when the Stripe modal closes', function() {
+  expect(0);
+  // TODO
+});
+
+test('it sends the primary action when a Stripe checkout completes', function() {
+  expect(0);
+  // TODO
+});
+
+test('it displays the configured values in the Stripe modal', function() {
+  expect(0);
+  // TODO: Use all component configurations and validate they display in the Stripe modal
 });
