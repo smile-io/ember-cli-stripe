@@ -54,3 +54,8 @@ test('it displays the configured values in the Stripe modal', function() {
   expect(0);
   // TODO: Use all component configurations and validate they display in the Stripe modal
 });
+
+test('it throws an exception if ENV.stripe.key is not defined in the app config', function() {
+  expect(0);
+  // TODO
+});

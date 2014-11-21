@@ -158,6 +158,15 @@ export default Ember.Component.extend({
   setupStripe: function() {
     var self = this;
 
+    if (Ember.isNone(this.get('key'))) {
+      throw [
+        "Your Stripe key must be set to use the stripe-checkout component. ",
+        "Set the key in your environment.js file (ENV.stripe.key) or set the ",
+        "key property on the component when instantiating it in your hbs template. ",
+        "Find your Stripe publishable key at https://dashboard.stripe.com/account/apikeys"
+      ].join('\n');
+    }
+
     var handler = StripeCheckout.configure({
       key: this.get('key'),
       token: function(token) {
