@@ -72,5 +72,11 @@ export default Ember.Controller.extend({
 ## Options
 All options from https://stripe.com/docs/checkout are supported
 
+## Notes for ember-cli pre v0.1.2
+If you're ember-cli version is pre v0.1.2 add the following script tag to your `index.html`. This script tag is added automatically by the addon for later ember-cli versions.
+```html
+<script src="https://checkout.stripe.com/checkout.js"></script>
+```
+
 ## Contributing
 PRs welcome!
