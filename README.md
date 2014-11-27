@@ -1,6 +1,5 @@
 # Stripe checkout for Ember [![Build Status](https://travis-ci.org/sweettooth/ember-cli-stripe.svg?branch=master)](http://travis-ci.org/sweettooth/ember-cli-stripe)
 
-
 ![Preview](https://www.sweettoothrewards.com/wp-content/uploads/stripe-checkout.png)
 
 ## Description
@@ -20,6 +19,7 @@ ENV.stripe = {
   key: "pk_test_C0sa3IlkLWBlrB8laH2fbqfh"
 };
 ```
+**Note:** Using ember-cli version lower than v0.1.2? [Do this extra setup step](https://github.com/sweettooth/ember-cli-stripe#notes-for-ember-cli-pre-v012)
 
 ## Usage
 
