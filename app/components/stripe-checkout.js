@@ -4,12 +4,12 @@ import config from '../config/environment';
 /**
  * Stripe checkout component for accepting payments with
  * an embedded form.
- * 
+ *
  * Stripe docs: https://stripe.com/docs/tutorials/checkout
  *
  * Usage:
- * {{stripe-checkout 
- *   description=billingPlan.description 
+ * {{stripe-checkout
+ *   description=billingPlan.description
  *   amount=billingPlan.amount
  * }}
  */
@@ -32,7 +32,7 @@ export default Ember.Component.extend({
    **********************************/
 
   /**
-   * A relative URL pointing to a square image of your brand or 
+   * A relative URL pointing to a square image of your brand or
    * product. The recommended minimum size is 128x128px.
    * Eg. "/square-image.png"
    */
@@ -49,8 +49,8 @@ export default Ember.Component.extend({
   description: "2 widgets ($20.00)",
 
   /**
-   * The amount (in cents) that's shown to the user. Note that you 
-   * will still have to explicitly include it when you create a 
+   * The amount (in cents) that's shown to the user. Note that you
+   * will still have to explicitly include it when you create a
    * charge using the Stripe API.
    */
   amount: 2000,
@@ -58,28 +58,34 @@ export default Ember.Component.extend({
   /**********************************
    * Optional attributes
    **********************************/
-  
+
   /**
    * The currency of the amount (3-letter ISO code). The default is USD.
    */
   currency: "USD",
 
   /**
-   * The label of the payment button in the Checkout form (e.g. “Subscribe”, 
-   * “Pay {{amount}}”, etc.). If you include {{amount}}, it will be replaced 
-   * by the provided amount. Otherwise, the amount will be appended to the 
+   * The label of the payment button in the Checkout form (e.g. “Subscribe”,
+   * “Pay {{amount}}”, etc.). If you include {{amount}}, it will be replaced
+   * by the provided amount. Otherwise, the amount will be appended to the
    * end of your label.
    */
   panelLabel: null,
 
   /**
-   * Specify whether Checkout should validate the billing ZIP code 
+   * Specify whether Checkout should validate the billing ZIP code
    * (true or false). The default is false.
    */
   zipCode: false,
 
   /**
-   * If you already know the email address of your user, you can provide 
+   * Specify whether Checkout should collect the customer's billing address
+   * (true or false). The default is false.
+   */
+  address: false,
+
+  /**
+   * If you already know the email address of your user, you can provide
    * it to Checkout to be pre-filled.
    */
   email: null,
@@ -87,10 +93,10 @@ export default Ember.Component.extend({
   /**
    * The text to be shown on the default blue button.
    */
-  label: "Pay with card", 
+  label: "Pay with card",
 
   /**
-   * Specify whether to include the option to "Remember Me" for future 
+   * Specify whether to include the option to "Remember Me" for future
    * purchases (true or false). The default is true.
    */
   allowRememberMe: true,
@@ -122,7 +128,7 @@ export default Ember.Component.extend({
   /**
    * Sets up Stripe and sends component action
    * with the Stripe token when checkout succeeds.
-   * 
+   *
    * The token looks like this
    * {
    *   "id": "tok_150enDGA2quO03uZPF8Nve2a",
@@ -202,6 +208,7 @@ export default Ember.Component.extend({
       'currency',
       'panelLabel',
       'zipCode',
+      'address',
       'email',
       'label',
       'allowRememberMe'
