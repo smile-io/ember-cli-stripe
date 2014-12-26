@@ -161,7 +161,7 @@ export default Ember.Component.extend({
    *
    * Source: https://stripe.com/docs/api#tokens
    */
-  setupStripe: function() {
+  setupStripe: Ember.on('init', function() {
     var self = this;
 
     if (Ember.isNone(this.get('key'))) {
@@ -186,7 +186,7 @@ export default Ember.Component.extend({
       }
     });
     this.set('handler', handler);
-  }.on('init'),
+  }),
 
   /**
    * Kick up the modal if we're clicked
@@ -216,8 +216,8 @@ export default Ember.Component.extend({
     this.get('handler').open(options);
   },
 
-  willDestroy: function() {
+  closeOnDestroy: Ember.on('willDestroyElement', function() {
     // Close modal if the user navigates away from page
     this.get('handler').close();
-  }
+  })
 });
