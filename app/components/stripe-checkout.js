@@ -58,6 +58,11 @@ export default Ember.Component.extend({
   /**********************************
    * Optional attributes
    **********************************/
+  
+  /**
+   * Accept Bitcoin payments.
+   */
+  bitcoin: false,
 
   /**
    * The currency of the amount (3-letter ISO code). The default is USD.
@@ -205,6 +210,7 @@ export default Ember.Component.extend({
       'name',
       'description',
       'amount',
+      'bitcoin',
       'currency',
       'panelLabel',
       'zipCode',
