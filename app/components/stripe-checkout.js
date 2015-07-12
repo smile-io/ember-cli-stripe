@@ -58,7 +58,7 @@ export default Ember.Component.extend({
   /**********************************
    * Optional attributes
    **********************************/
-  
+
   /**
    * Accept Bitcoin payments.
    */
@@ -112,6 +112,17 @@ export default Ember.Component.extend({
    */
   alipay: false,
 
+  /**
+   * Specify whether to reuse alipay information to
+   * checkout (true or false). The default is false.
+   */
+  'alipay-reusable': false,
+
+  /**
+   * Specify language preference. (auto or false or language
+   * code). The default is false
+   */
+  locale: false,
   /**********************************
    * Extras
    **********************************/
