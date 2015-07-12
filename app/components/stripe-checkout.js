@@ -119,10 +119,10 @@ export default Ember.Component.extend({
   'alipay-reusable': false,
 
   /**
-   * Specify language preference ('' or auto).
-   * The default is ''.
+   * Specify language preference.
    */
-  locale: '',
+  locale: config.stripe.locale,
+
   /**********************************
    * Extras
    **********************************/
@@ -197,6 +197,7 @@ export default Ember.Component.extend({
 
     var handler = StripeCheckout.configure({
       key: this.get('key'),
+      locale: this.get('locale'),
       token: function(token) {
         self.sendAction('action', token);
       },
@@ -236,8 +237,7 @@ export default Ember.Component.extend({
       'label',
       'allowRememberMe',
       'alipay',
-      'alipay-reusable',
-      'locale'
+      'alipay-reusable'
     ]);
     this.get('handler').open(options);
   },
