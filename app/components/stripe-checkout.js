@@ -108,7 +108,7 @@ export default Ember.Component.extend({
 
   /**
    * Specify whether to include the option to use alipay to
-   * checkout (true or false). The default is false.
+   * checkout (true or false or auto). The default is false.
    */
   alipay: false,
 
@@ -119,10 +119,10 @@ export default Ember.Component.extend({
   'alipay-reusable': false,
 
   /**
-   * Specify language preference. (auto or false or language
-   * code). The default is false
+   * Specify language preference ('' or auto).
+   * The default is ''.
    */
-  locale: false,
+  locale: '',
   /**********************************
    * Extras
    **********************************/
@@ -235,7 +235,9 @@ export default Ember.Component.extend({
       'email',
       'label',
       'allowRememberMe',
-      'alipay'
+      'alipay',
+      'alipay-reusable',
+      'locale'
     ]);
     this.get('handler').open(options);
   },
