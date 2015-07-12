@@ -106,6 +106,12 @@ export default Ember.Component.extend({
    */
   allowRememberMe: true,
 
+  /**
+   * Specify whether to include the option to use alipay to
+   * checkout (true or false). The default is false.
+   */
+  alipay: false,
+
   /**********************************
    * Extras
    **********************************/
@@ -217,7 +223,8 @@ export default Ember.Component.extend({
       'address',
       'email',
       'label',
-      'allowRememberMe'
+      'allowRememberMe',
+      'alipay'
     ]);
     this.get('handler').open(options);
   },
