@@ -58,7 +58,7 @@ export default Ember.Component.extend({
   /**********************************
    * Optional attributes
    **********************************/
-  
+
   /**
    * Accept Bitcoin payments.
    */
@@ -105,6 +105,23 @@ export default Ember.Component.extend({
    * purchases (true or false). The default is true.
    */
   allowRememberMe: true,
+
+  /**
+   * Specify whether to include the option to use alipay to
+   * checkout (true or false or auto). The default is false.
+   */
+  alipay: false,
+
+  /**
+   * Specify whether to reuse alipay information to
+   * checkout (true or false). The default is false.
+   */
+  'alipay-reusable': false,
+
+  /**
+   * Specify language preference.
+   */
+  locale: config.stripe.locale,
 
   /**********************************
    * Extras
@@ -180,6 +197,7 @@ export default Ember.Component.extend({
 
     var handler = StripeCheckout.configure({
       key: this.get('key'),
+      locale: this.get('locale'),
       token: function(token) {
         self.sendAction('action', token);
       },
@@ -217,7 +235,9 @@ export default Ember.Component.extend({
       'address',
       'email',
       'label',
-      'allowRememberMe'
+      'allowRememberMe',
+      'alipay',
+      'alipay-reusable'
     ]);
     this.get('handler').open(options);
   },
