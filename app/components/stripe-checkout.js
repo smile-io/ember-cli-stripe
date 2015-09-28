@@ -1,5 +1,6 @@
 import Ember from 'ember';
 import config from '../config/environment';
+import emberVersionIs from 'ember-version-is';
 
 /**
  * Stripe checkout component for accepting payments with
@@ -13,7 +14,7 @@ import config from '../config/environment';
  *   amount=billingPlan.amount
  * }}
  */
-export default Ember.Component.extend({
+const StripeCheckoutComponent = Ember.Component.extend({
   tagName: 'button',
   classNames: ['stripe-checkout'],
   attributeBindings: ['isDisabled:disabled'],
@@ -247,3 +248,11 @@ export default Ember.Component.extend({
     this.get('handler').close();
   })
 });
+
+if (emberVersionIs('lessThan', '1.13.0')) {
+  StripeCheckoutComponent.reopen({
+      hasBlock: Ember.computed.alias('template')
+  });
+}
+
+export default StripeCheckoutComponent;
