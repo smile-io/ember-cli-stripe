@@ -1,0 +1,36 @@
+{{!- BEGIN-SNIPPET multiple-keys-usage-config-key }}
+<!--  Uses Stripe API key from configuration file  -->
+{{stripe-checkout
+  name="Sweet Tooth"
+  description="Description using config key"
+  amount=2500
+  label="Subscribe $25"
+  panelLabel="Subscribe {{amount}}/mo"
+  onToken=(action "checkoutToken" 2500)
+}}
+{{!- END-SNIPPET }}
+
+{{!- BEGIN-SNIPPET multiple-keys-usage-custom-key }}
+<!--  Uses custom Stripe API key that overwrites configuration file one  -->
+{{stripe-checkout
+  key="pk_test_ziVVFivwOqMSHF3wYFI7WodB"
+  name="Sweet Tooth"
+  description="Description using new Stripe key"
+  amount=3000
+  label="Subscribe $30"
+  panelLabel="Subscribe for {{amount}}/mo"
+  onToken=(action "checkoutToken" 3000)
+}}
+{{!- END-SNIPPET }}
+
+<h2>Multiple keys usage</h2>
+<p>
+  The addon also supports using different Stripe API keys on the same page (ex: <i>a marketplace</i>).
+</p>
+<p>
+  First Stripe checkout component uses the API key from the configuration file,
+  while the second uses a custom one, passed directly to the component which overwrites
+  the default configuration one.
+  {{code-snippet name="multiple-keys-usage-config-key.hbs"}}
+  {{code-snippet name="multiple-keys-usage-custom-key.hbs"}}
+</p>

@@ -1,0 +1,52 @@
+{{!- BEGIN-SNIPPET advanced-usage-button-1 }}
+{{stripe-checkout
+  name="Sweet Tooth"
+  description="Description 1"
+  amount=2500
+  label="Subscribe $25"
+  panelLabel="Subscribe for {{amount}}/mo"
+  onToken=(action "checkoutToken" 2500)
+  onOpened=(action "checkoutOpened")
+  onClosed=(action "checkoutClosed")
+}}
+{{!- END-SNIPPET }}
+
+{{!- BEGIN-SNIPPET advanced-usage-button-2 }}
+{{stripe-checkout
+  name="Sweet Tooth"
+  description="Description 2"
+  amount=3000
+  label="Subscribe $30"
+  panelLabel="Subscribe for {{amount}}/mo"
+  onToken=(action "checkoutToken" 3000)
+  onOpened=(action "checkoutOpened")
+  onClosed=(action "checkoutClosed")
+}}
+{{!- END-SNIPPET }}
+
+{{!- BEGIN-SNIPPET advanced-usage-button-3 }}
+{{stripe-checkout
+  name="Sweet Tooth"
+  description="Disabled"
+  amount=3500
+  label="Subscribe $35"
+  panelLabel="Subscribe for {{amount}}/mo"
+  isDisabled=true
+  onToken=(action "checkoutToken" 3500)
+  onOpened=(action "checkoutOpened")
+  onClosed=(action "checkoutClosed")
+}}
+{{!- END-SNIPPET }}
+
+<h2>Advanced usage</h2>
+<p>
+  You can render as many <b>stripe-checkout</b> components on a page as you wish.
+</p>
+<p>
+  You can also bind a value to <b>isDisabled</b> to disable/enable the checkout button
+  dynamically.
+  {{code-snippet name="advanced-usage-button-3.hbs"}}
+
+  Handling the actions is pretty straight-forward
+  {{code-snippet name="advanced-usage-actions.js"}}
+</p>
