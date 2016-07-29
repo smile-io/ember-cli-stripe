@@ -1,5 +1,4 @@
 import Ember from 'ember';
-import config from '../config/environment';
 
 /**
  * Stripe checkout component for accepting payments with
@@ -25,7 +24,10 @@ export default Ember.Component.extend({
   /**
    * Your publishable key (test or live).
    */
-  key: config.stripe.key,
+  key: Ember.computed(function() {
+    let config = Ember.getOwner(this).resolveRegistration('config:environment');
+    return Ember.get(config, 'stripe.key');
+  }),
 
   /**********************************
    * Highly recommended attributes
@@ -121,7 +123,10 @@ export default Ember.Component.extend({
   /**
    * Specify language preference.
    */
-  locale: config.stripe.locale,
+  locale: Ember.computed(function() {
+    let config = Ember.getOwner(this).resolveRegistration('config:environment');
+    return Ember.get(config, 'stripe.locale');
+  }),
 
   /**********************************
    * Extras
