@@ -12,7 +12,7 @@ import Ember from 'ember';
  *   amount=billingPlan.amount
  * }}
  */
-export default Ember.Component.extend({
+let StripeCheckout = Ember.Component.extend({
   tagName: 'button',
   classNames: ['stripe-checkout'],
   attributeBindings: ['isDisabled:disabled'],
@@ -252,3 +252,5 @@ export default Ember.Component.extend({
     this.get('handler').close();
   })
 });
+
+export default StripeCheckout;
