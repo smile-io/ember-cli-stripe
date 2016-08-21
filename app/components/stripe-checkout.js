@@ -87,7 +87,13 @@ export default Ember.Component.extend({
    * Specify whether Checkout should collect the customer's billing address
    * (true or false). The default is false.
    */
-  address: false,
+  billingAddress: false,
+
+  /**
+   * Specify whether Checkout should collect the customer's shipping address
+   * (true or false). The default is false.
+   */
+  shippingAddress: false,
 
   /**
    * If you already know the email address of your user, you can provide
@@ -116,7 +122,7 @@ export default Ember.Component.extend({
    * Specify whether to reuse alipay information to
    * checkout (true or false). The default is false.
    */
-  'alipay-reusable': false,
+  'alipayReusable': false,
 
   /**
    * Specify language preference.
@@ -232,12 +238,13 @@ export default Ember.Component.extend({
       'currency',
       'panelLabel',
       'zipCode',
-      'address',
+      'billingAddress',
+      'shippingAddress',
       'email',
       'label',
       'allowRememberMe',
       'alipay',
-      'alipay-reusable'
+      'alipayReusable'
     ]);
     this.get('handler').open(options);
   },
