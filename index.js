@@ -5,7 +5,7 @@ module.exports = {
   
   contentFor: function(type) {
     if (type === 'body') {
-      return '<script src="https://checkout.stripe.com/checkout.js"></script>';
+      return '<script src="https://checkout.stripe.com/checkout.js" async="true"></script>';
     }
   },
 };
