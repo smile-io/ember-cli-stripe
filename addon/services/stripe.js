@@ -113,6 +113,8 @@ export default Service.extend({
             false,
             { id: 'ember-cli-stripe.action-callback', until: '1.1.0' }
           );
+          
+          invokeAction(component, 'action', ...arguments);
         }
       },
       opened() {
