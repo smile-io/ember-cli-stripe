@@ -47,9 +47,11 @@ export default Service.extend({
    * @public
    */
   open(component) {
-    let config = this._stripeConfig(component);
-    let stripeHandler = this._stripeHandler(component);
-    stripeHandler.open(config);
+    this._stripeScriptPromise.then(() => {
+      let config = this._stripeConfig(component);
+      let stripeHandler = this._stripeHandler(component);
+      stripeHandler.open(config);
+    });
   },
 
   /*
@@ -113,7 +115,7 @@ export default Service.extend({
             false,
             { id: 'ember-cli-stripe.action-callback', until: '1.1.0' }
           );
-          
+
           invokeAction(component, 'action', ...arguments);
         }
       },
