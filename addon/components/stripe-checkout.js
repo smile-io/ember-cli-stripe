@@ -67,7 +67,7 @@ export default Component.extend({
     this.get('stripe').close(this);
   },
 
-  init() {
+  willInsertElement() {
     this._super(...arguments);
     this.get('stripe').registerComponent(this);
   },
