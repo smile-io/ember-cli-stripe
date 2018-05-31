@@ -47,7 +47,7 @@ export default Service.extend({
    * @public
    */
   open(component) {
-    this._stripeScriptPromise.then(() => {
+    return this._stripeScriptPromise.then(() => {
       let config = this._stripeConfig(component);
       let stripeHandler = this._stripeHandler(component);
       stripeHandler.open(config);

@@ -24,6 +24,7 @@ moduleFor('service:stripe', 'Unit | Service | stripe', {
     service = StripeService.create({
       stripeConfig: stripe,
       _scriptLoading: true,
+      _stripeScriptPromise: new Ember.RSVP.Promise((resolve) => resolve()),
     });
   },
 
@@ -74,22 +75,22 @@ test('open() opens Stripe Checkout with correct config options', function(assert
     component: stripeComponent,
   };
 
-  service.open(stripeComponent);
+  service.open(stripeComponent).then(() => {
+    let handlerOptions = {
+      key: config.stripe.key,
+      token: sinon.match.func,
+      opened: sinon.match.func,
+      closed: sinon.match.func,
+    };
+    sinon.assert.calledWith(configureCheckoutStub, sinon.match.object);
+    sinon.assert.calledWith(configureCheckoutStub, sinon.match(handlerOptions));
 
-  let handlerOptions = {
-    key: config.stripe.key,
-    token: sinon.match.func,
-    opened: sinon.match.func,
-    closed: sinon.match.func,
-  };
-  sinon.assert.calledWith(configureCheckoutStub, sinon.match.object);
-  sinon.assert.calledWith(configureCheckoutStub, sinon.match(handlerOptions));
-
-  const stripeOptions = {
-    key: config.stripe.key,
-    name: stripeComponent.get('name'),
-  };
-  assert.ok(openCheckoutSpy.calledWith(stripeOptions), 'opens Stripe checkout with correct config options');
+    const stripeOptions = {
+      key: config.stripe.key,
+      name: stripeComponent.get('name'),
+    };
+    assert.ok(openCheckoutSpy.calledWith(stripeOptions), 'opens Stripe checkout with correct config options');
+  });
 });
 
 test('close() closes Stripe Checkout', function(assert) {
