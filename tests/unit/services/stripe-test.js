@@ -62,7 +62,8 @@ test('unregisterComponent() unregisters the component', function(assert) {
 test('open() opens Stripe Checkout with correct config options', function(assert) {
   window.StripeCheckout = {
     configure() {},
-    open() {}
+    open() {},
+    close() {},
   };
   const openCheckoutSpy = this.spy();
   const configureCheckoutStub = this.stub(window.StripeCheckout, 'configure');
@@ -96,7 +97,8 @@ test('open() opens Stripe Checkout with correct config options', function(assert
 test('close() closes Stripe Checkout', function(assert) {
   window.StripeCheckout = {
     configure() {},
-    open() {}
+    open() {},
+    close() {},
   };
   const closeCheckoutSpy = this.spy();
   const configureCheckoutStub = this.stub(window.StripeCheckout, 'configure');
@@ -107,10 +109,18 @@ test('close() closes Stripe Checkout', function(assert) {
   const componentGuid = guidFor(stripeComponent);
   service._alive[componentGuid] = {
     component: stripeComponent,
+    handler: configureCheckoutStub(),
   };
-
 
   service.close(stripeComponent);
 
   assert.ok(closeCheckoutSpy.calledOnce, 'closes Stripe checkout when it is opened');
+});
+
+test('close() does nothing if StripeCheckout is not yet loaded', function(assert) {
+  const componentGuid = guidFor(stripeComponent);
+  service._alive[componentGuid] = {
+    component: stripeComponent,
+  };
+  assert.equal(null, service.close(stripeComponent), 'does not attempt to access StripeCheckout when it is not defined');
 });
