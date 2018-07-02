@@ -1,6 +1,7 @@
 # Stripe checkout for Ember [![Build Status](https://travis-ci.org/sweettooth/ember-cli-stripe.svg?branch=master)](http://travis-ci.org/sweettooth/ember-cli-stripe)
 
-![Preview](https://www.sweettoothrewards.com/wp-content/uploads/stripe-checkout.png)
+![Preview](https://user-images.githubusercontent.com/160955/42161490-d734da26-7e03-11e8-97ca-761285ac2dff.png)
+
 
 ## Description
 
