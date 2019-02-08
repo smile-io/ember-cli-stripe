@@ -4,7 +4,7 @@
 
 * `git clone <repository-url>`
 * `cd ember-cli-stripe`
-* `npm install`
+* `yarn install`
 
 ## Linting
 
