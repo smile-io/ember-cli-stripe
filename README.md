@@ -1,9 +1,8 @@
-# Stripe checkout for Ember [![Build Status](https://travis-ci.org/sweettooth/ember-cli-stripe.svg?branch=master)](http://travis-ci.org/sweettooth/ember-cli-stripe)
+Stripe checkout for Ember [![Build Status](https://travis-ci.org/smile-io/ember-cli-stripe.svg?branch=master)](http://travis-ci.org/smile-io/ember-cli-stripe)
+==============================================================================
 
 ![Preview](https://user-images.githubusercontent.com/160955/42161490-d734da26-7e03-11e8-97ca-761285ac2dff.png)
 
-
-## Description
 
 Simplest way to implement card payments in your Ember app.
 
@@ -12,13 +11,23 @@ See [Stripe Checkout](https://stripe.com/docs/checkout#integration-custom) docs.
 
 The best documentation is the sample application in `tests/dummy`.
 
-## Installation
+
+Compatibility
+------------------------------------------------------------------------------
+
+* Ember.js v2.18 or above
+* Ember CLI v2.13 or above
+
+Installation
+------------------------------------------------------------------------------
 
 ```sh
-ember install ember-cli-stripe 
+ember install ember-cli-stripe
 ```
 
-## Usage
+
+Usage
+------------------------------------------------------------------------------
 
 ```handlebars
 {{stripe-checkout
@@ -38,7 +47,7 @@ Property              | Purpose
 `isDisabled`          | When true, the Stripe Checkout button is disabled.
 `showCheckout`        | Can be used to open the Stripe Checkout modal dynamically.
 
-Besides the above, all [Stripe Checkout configuration options](https://stripe.com/docs/checkout#integration-custom) 
+Besides the above, all [Stripe Checkout configuration options](https://stripe.com/docs/checkout#integration-custom)
 are supported. If you notice anything missing please open an issue.
 
 ### Actions
@@ -73,7 +82,7 @@ Action                | Purpose
 ## Configuration
 All Stripe Checkout configuration options can be set in your apps config.
 
-In most cases, you will want to add at least your Stripe **publishable key** to your app's config, but this can be set as a property on the component too. 
+In most cases, you will want to add at least your Stripe **publishable key** to your app's config, but this can be set as a property on the component too.
 
 ```javascript
 // config/environment.js
@@ -94,33 +103,7 @@ module.exports = function(environment) {
 Multiple Stripe keys are supported, when passed directly to the component.
 
 
-## Compatibility
+License
+------------------------------------------------------------------------------
 
-This addon is tested against Ember 1.13+.
-
-For older versions of Ember, use version `0.4.0` and check the [old docs](https://github.com/sweettooth/ember-cli-stripe/blob/v0.4.0/README.md).
-
-**Note:** At your own risk, feel free to try current version, it might still work.
-
-
-## Contributing
-
-PRs welcome!
-
-* `git clone` this repository
-* `npm install`
-* `bower install`
-
-### Running
-
-* `ember server`
-* Visit your app at http://localhost:4200.
-
-### Running Tests
-
-* `npm test` (Runs `ember try:testall` to test your addon against multiple Ember versions)
-* `ember test`
-* `ember test --server`
-
-
-For more information on using ember-cli, visit [http://www.ember-cli.com/](http://www.ember-cli.com/).
+This project is licensed under the [MIT License](LICENSE.md).
