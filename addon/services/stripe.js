@@ -3,8 +3,7 @@ import Service from '@ember/service';
 import { assign } from '@ember/polyfills';
 import { getWithDefault } from '@ember/object';
 import { guidFor } from '@ember/object/internals';
-import { isBlank, typeOf } from '@ember/utils';
-import { deprecate } from '@ember/application/deprecations';
+import { typeOf } from '@ember/utils';
 import RSVP from 'rsvp';
 import { invokeAction } from 'ember-invoke-action';
 import stripeConfigOptions from '../utils/configuration-options';
@@ -100,16 +99,6 @@ export default Service.extend({
       key: stripeConfig.key,
       token() {
         invokeAction(component, 'onToken', ...arguments);
-
-        // Add deprecation for previous `action` callback
-        if (!isBlank(component.attrs.action)) {
-          deprecate('Using `action` callback is deprecated and will be removed in future versions. Please use `onToken` with a closure action instead',
-            false,
-            { id: 'ember-cli-stripe.action-callback', until: '1.1.0' }
-          );
-
-          invokeAction(component, 'action', ...arguments);
-        }
       },
       opened() {
         invokeAction(component, 'onOpened');

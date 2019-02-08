@@ -106,7 +106,6 @@ module('Unit | Service | stripe', function(hooks) {
       component: stripeComponent,
     };
 
-
     service.close(stripeComponent);
 
     assert.ok(closeCheckoutSpy.calledOnce, 'closes Stripe checkout when it is opened');
