@@ -2,7 +2,7 @@
 import Service from '@ember/service';
 import { assign } from '@ember/polyfills';
 import { getWithDefault } from '@ember/object';
-import { guidFor, copy } from '@ember/object/internals';
+import { guidFor } from '@ember/object/internals';
 import { isBlank, typeOf } from '@ember/utils';
 import { deprecate } from '@ember/application/deprecations';
 import RSVP from 'rsvp';
@@ -80,8 +80,7 @@ export default Service.extend({
    */
   _stripeConfig(component) {
     let stripeConfig = getWithDefault(this, 'stripeConfig', {});
-    let options = copy(stripeConfig);
-    assign(options, this._componentStripeConfig(component));
+    let options = assign({}, stripeConfig, this._componentStripeConfig(component));
 
     return this._cleanupOptions(options);
   },
