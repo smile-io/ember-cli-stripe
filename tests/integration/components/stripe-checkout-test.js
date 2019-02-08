@@ -1,10 +1,6 @@
-import Ember from 'ember';
+import Service from '@ember/service';
 import { moduleForComponent, test } from 'ember-qunit';
 import hbs from 'htmlbars-inline-precompile';
-
-const {
-  Service
-} = Ember;
 
 // Stub Stripe service
 const stripeStub = Service.extend({

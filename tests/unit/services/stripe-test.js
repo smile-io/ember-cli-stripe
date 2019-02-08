@@ -1,15 +1,13 @@
-import Ember from 'ember';
 import { moduleFor } from 'ember-qunit';
+import sinon from 'sinon';
 import test from 'ember-sinon-qunit/test-support/test';
+import { run } from '@ember/runloop';
+import EmberObject from '@ember/object';
+import { guidFor } from '@ember/object/internals';
 import config from '../../../config/environment';
 import StripeService from 'ember-cli-stripe/services/stripe';
-import sinon from 'sinon';
 
-const {
-  guidFor
-} = Ember;
-
-const stripeComponent = Ember.Object.create({
+const stripeComponent = EmberObject.create({
   name: 'Best product',
 });
 
@@ -28,7 +26,7 @@ moduleFor('service:stripe', 'Unit | Service | stripe', {
   },
 
   afterEach() {
-    Ember.run(() => service.destroy());
+    run(() => service.destroy());
     service = null;
   }
 });

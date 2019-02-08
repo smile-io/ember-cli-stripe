@@ -1,11 +1,7 @@
-import Ember from 'ember';
+import Component from '@ember/component';
+import { bool } from '@ember/object/computed';
+import { inject as service } from '@ember/service';
 import layout from '../templates/components/stripe-checkout';
-
-const {
-  computed: { bool },
-  Component,
-  inject: { service },
-} = Ember;
 
 /**
  * Stripe checkout component for accepting payments with
