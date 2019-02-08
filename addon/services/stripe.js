@@ -1,6 +1,6 @@
 /* global StripeCheckout */
 import Service from '@ember/service';
-import { assign, merge } from '@ember/polyfills';
+import { assign } from '@ember/polyfills';
 import { getWithDefault } from '@ember/object';
 import { guidFor, copy } from '@ember/object/internals';
 import { isBlank, typeOf } from '@ember/utils';
@@ -81,8 +81,6 @@ export default Service.extend({
   _stripeConfig(component) {
     let stripeConfig = getWithDefault(this, 'stripeConfig', {});
     let options = copy(stripeConfig);
-    // Support for Ember <= 2.4 (when assign was introduced)
-    let assign = assign || merge;
     assign(options, this._componentStripeConfig(component));
 
     return this._cleanupOptions(options);
