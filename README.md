@@ -15,7 +15,8 @@ See [Stripe Checkout](https://stripe.com/docs/checkout#integration-custom) docs.
 
 The best documentation is the sample application in `tests/dummy`.
 
-<<<<<<< HEAD
+## Installation
+
 ```sh
 ember install ember-cli-stripe
 ```
