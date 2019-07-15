@@ -1,6 +1,6 @@
-import { bool } from '@ember/object/computed';
 import Component from '@ember/component';
 import { inject as service } from '@ember/service';
+import { bool } from '@ember/object/computed';
 import layout from '../templates/components/stripe-checkout';
 
 /**
