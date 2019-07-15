@@ -1,12 +1,13 @@
-import { run } from '@ember/runloop';
-import EmberObject from '@ember/object';
-import { guidFor } from '@ember/object/internals';
 import { module } from 'qunit';
 import { setupTest } from 'ember-qunit';
 import test from 'ember-sinon-qunit/test-support/test';
+import { settled } from '@ember/test-helpers';
+import { run } from '@ember/runloop';
+import EmberObject from '@ember/object';
+import { guidFor } from '@ember/object/internals';
+import { resolve } from 'rsvp';
 import config from '../../../config/environment';
 import StripeService from 'ember-cli-stripe/services/stripe';
-import sinon from 'sinon';
 
 const stripeComponent = EmberObject.create({
   name: 'Best product',
@@ -23,6 +24,7 @@ module('Unit | Service | stripe', function(hooks) {
     service = StripeService.create({
       stripeConfig: stripe,
       _scriptLoading: true,
+      _stripeScriptPromise: resolve(),
     });
   });
 
@@ -56,13 +58,13 @@ module('Unit | Service | stripe', function(hooks) {
     assert.deepEqual(service._alive, {}, 'removes the component from _alive');
   });
 
-  test('open() opens Stripe Checkout with correct config options', function(assert) {
+  test('open() opens Stripe Checkout with correct config options', async function(assert) {
     window.StripeCheckout = {
       configure() {},
       open() {}
     };
-    const openCheckoutSpy = this.spy();
-    const configureCheckoutStub = this.stub(window.StripeCheckout, 'configure');
+    const openCheckoutSpy = this.sandbox.spy();
+    const configureCheckoutStub = this.sandbox.stub(window.StripeCheckout, 'configure');
     configureCheckoutStub.returns({
       open: openCheckoutSpy
     });
@@ -74,14 +76,16 @@ module('Unit | Service | stripe', function(hooks) {
 
     service.open(stripeComponent);
 
+    await settled();
+
     let handlerOptions = {
       key: config.stripe.key,
-      token: sinon.match.func,
-      opened: sinon.match.func,
-      closed: sinon.match.func,
+      token: this.sandbox.match.func,
+      opened: this.sandbox.match.func,
+      closed: this.sandbox.match.func,
     };
-    sinon.assert.calledWith(configureCheckoutStub, sinon.match.object);
-    sinon.assert.calledWith(configureCheckoutStub, sinon.match(handlerOptions));
+    this.sandbox.assert.calledWith(configureCheckoutStub, this.sandbox.match.object);
+    this.sandbox.assert.calledWith(configureCheckoutStub, this.sandbox.match(handlerOptions));
 
     const stripeOptions = {
       key: config.stripe.key,
