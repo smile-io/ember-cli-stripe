@@ -1,7 +1,7 @@
 ember-cli-stripe
 ==============================================================================
 
-# Stripe checkout for Ember [![Build Status](https://travis-ci.org/sweettooth/ember-cli-stripe.svg?branch=master)](http://travis-ci.org/sweettooth/ember-cli-stripe)
+# Stripe checkout for Ember [![Build Status](https://travis-ci.org/smile-io/ember-cli-stripe.svg?branch=master)](http://travis-ci.org/smile-io/ember-cli-stripe)
 
 ![Preview](https://user-images.githubusercontent.com/160955/42161490-d734da26-7e03-11e8-97ca-761285ac2dff.png)
 
@@ -102,7 +102,7 @@ Multiple Stripe keys are supported, when passed directly to the component.
 * Ember.js v2.18 or above
 * Ember CLI v2.13 or above
 
-For versions of Ember older than 1.13, use version `0.4.0` and check the [old docs](https://github.com/sweettooth/ember-cli-stripe/blob/v0.4.0/README.md).
+For versions of Ember older than 1.13, use version `0.4.0` and check the [old docs](https://github.com/smile-io/ember-cli-stripe/blob/v0.4.0/README.md).
 
 **Note:** At your own risk, feel free to try current version, it might still work.
 

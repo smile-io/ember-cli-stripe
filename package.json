@@ -7,14 +7,15 @@
     "stripe",
     "stripe.js",
     "stripejs",
-    "sweettooth"
+    "smile",
+    "smile.io"
   ],
   "repository": {
     "type": "git",
-    "url": "https://github.com/sweettooth/ember-cli-stripe"
+    "url": "https://github.com/smile-io/ember-cli-stripe"
   },
   "license": "MIT",
-  "author": "Bill Curtis <wcurtis@sweettoothhq.com>",
+  "author": "Bill Curtis <bill@smile.io>",
   "directories": {
     "doc": "doc",
     "test": "tests"
