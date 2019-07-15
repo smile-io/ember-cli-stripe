@@ -1,10 +1,8 @@
-import Ember from 'ember';
-import { moduleForComponent, test } from 'ember-qunit';
+import Service from '@ember/service';
+import { module, test } from 'qunit';
+import { setupRenderingTest } from 'ember-qunit';
+import { render, click } from '@ember/test-helpers';
 import hbs from 'htmlbars-inline-precompile';
-
-const {
-  Service
-} = Ember;
 
 // Stub Stripe service
 const stripeStub = Service.extend({
@@ -14,55 +12,55 @@ const stripeStub = Service.extend({
   close() {},
 });
 
-moduleForComponent('stripe-checkout', 'Integration | Component | stripe checkout', {
-  integration: true,
+module('Integration | Component | stripe checkout', function(hooks) {
+  setupRenderingTest(hooks);
 
-  beforeEach: function() {
-    this.register('service:stripe', stripeStub);
-    this.inject.service('stripe');
-  },
-});
-
-test('it renders', function(assert) {
-  assert.expect(3);
-
-  this.render(hbs`{{stripe-checkout}}`);
-
-  assert.equal(this.$().text().trim(), 'Pay with card', 'renders default button text');
-
-  this.render(hbs`{{stripe-checkout label='Pay now'}}`);
-
-  assert.equal(this.$().text().trim(), 'Pay now', 'renders passed button label text');
-
-  this.render(hbs`
-    {{#stripe-checkout}}
-      Pay dude!
-    {{/stripe-checkout}}
-  `);
-
-  assert.equal(this.$().text().trim(), 'Pay dude!', 'renders using block-form');
-});
-
-test('it opens Stripe Checkout when button is clicked', function(assert) {
-  assert.expect(1);
-
-  this.get('stripe').set('open', () => {
-    assert.ok('calls Stripe service with _self as param');
+  hooks.beforeEach(function() {
+    this.owner.register('service:stripe', stripeStub);
+    this.stripe = this.owner.lookup('service:stripe');
   });
 
-  this.render(hbs`{{stripe-checkout}}`);
-  this.$('button').click();
-});
+  test('it renders', async function(assert) {
+    assert.expect(3);
 
-test('it opens Stripe Checkout when `showCheckout` is true', function(assert) {
-  assert.expect(1);
+    await render(hbs`{{stripe-checkout}}`);
 
-  this.get('stripe').set('open', () => {
-    assert.ok('calls Stripe service with _self as param');
+    assert.dom('*').hasText('Pay with card', 'renders default button text');
+
+    await render(hbs`{{stripe-checkout label='Pay now'}}`);
+
+    assert.dom('*').hasText('Pay now', 'renders passed button label text');
+
+    await render(hbs`
+      {{#stripe-checkout}}
+        Pay dude!
+      {{/stripe-checkout}}
+    `);
+
+    assert.dom('*').hasText('Pay dude!', 'renders using block-form');
   });
 
-  this.set('showCheckout', false);
-  this.render(hbs`{{stripe-checkout showCheckout=showCheckout}}`);
+  test('it opens Stripe Checkout when button is clicked', async function(assert) {
+    assert.expect(1);
 
-  this.set('showCheckout', true);
+    this.get('stripe').set('open', () => {
+      assert.ok('calls Stripe service with _self as param');
+    });
+
+    await render(hbs`{{stripe-checkout}}`);
+    await click('button');
+  });
+
+  test('it opens Stripe Checkout when `showCheckout` is true', async function(assert) {
+    assert.expect(1);
+
+    this.get('stripe').set('open', () => {
+      assert.ok('calls Stripe service with _self as param');
+    });
+
+    this.set('showCheckout', false);
+    await render(hbs`{{stripe-checkout showCheckout=showCheckout}}`);
+
+    this.set('showCheckout', true);
+  });
 });
