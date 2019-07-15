@@ -113,7 +113,7 @@ For versions of Ember older than 1.13, use version `0.4.0` and check the [old do
 
 ### Running Tests
 
-* `npm test` (Runs `ember try:testall` to test your addon against multiple Ember versions)
+* `yarn test` (Runs `ember try:testall` to test your addon against multiple Ember versions)
 * `ember test`
 * `ember test --server`
 
