@@ -100,23 +100,15 @@ Multiple Stripe keys are supported, when passed directly to the component.
 * Ember CLI v2.13 or above
 * Node.js v8 or above
 
-For versions of Ember older than 1.13, use version `0.4.0` and check the [old docs](https://github.com/smile-io/ember-cli-stripe/blob/v0.4.0/README.md).
+### For older versions of Ember.js
+
+| Ember.js version | ember-cli-stripe version |
+| ---------------- | ------------------------ |
+| `2.18+`          | `2.x`                    |
+| `1.13+`          | `0.x`                    |
 
 **Note:** At your own risk, feel free to try current version, it might still work.
 
-### Running
-
-* `ember server`
-* Visit your app at http://localhost:4200.
-
-### Running Tests
-
-* `yarn test` (Runs `ember try:testall` to test your addon against multiple Ember versions)
-* `ember test`
-* `ember test --server`
-
-
-For more information on using ember-cli, visit [http://www.ember-cli.com/](http://www.ember-cli.com/).
 
 Contributing
 ------------------------------------------------------------------------------
