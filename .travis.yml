@@ -14,9 +14,7 @@ addons:
 cache:
   yarn: true
 
-matrix:
-  fast_finish: true
-
+env:
   global:
     # See https://git.io/vdao3 for details.
     - JOBS=1
@@ -37,6 +35,8 @@ jobs:
 
     - stage: "Tests"
       name: "Tests"
+      install:
+      - yarn install --non-interactive
       script:
         - yarn lint:hbs
         - yarn lint:js
@@ -45,19 +45,12 @@ jobs:
     # we recommend new addons test the current and previous LTS
     # as well as latest stable release (bonus points to beta/canary)
     - stage: "Additional Tests"
-      env: EMBER_TRY_SCENARIO=ember-lts-2.18
-    - env: EMBER_TRY_SCENARIO=ember-lts-3.4
+      env: EMBER_TRY_SCENARIO=ember-lts-3.4
+    - env: EMBER_TRY_SCENARIO=ember-lts-3.8
     - env: EMBER_TRY_SCENARIO=ember-release
     - env: EMBER_TRY_SCENARIO=ember-beta
     - env: EMBER_TRY_SCENARIO=ember-canary
     - env: EMBER_TRY_SCENARIO=ember-default-with-jquery
-
-before_install:
-  - curl -o- -L https://yarnpkg.com/install.sh | bash
-  - export PATH=$HOME/.yarn/bin:$PATH
-
-install:
-  - yarn install --non-interactive
 
 script:
   - node_modules/.bin/ember try:one $EMBER_TRY_SCENARIO

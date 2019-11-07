@@ -32,11 +32,11 @@ ember install ember-cli-stripe
 
 ## Component properties
 
-Property              | Purpose
---------------------- | -------------
-`label`               | Stripe Checkout button text.
-`isDisabled`          | When true, the Stripe Checkout button is disabled.
-`showCheckout`        | Can be used to open the Stripe Checkout modal dynamically.
+| Property       | Purpose                                                    |
+| -------------- | ---------------------------------------------------------- |
+| `label`        | Stripe Checkout button text.                               |
+| `isDisabled`   | When true, the Stripe Checkout button is disabled.         |
+| `showCheckout` | Can be used to open the Stripe Checkout modal dynamically. |
 
 Besides the above, all [Stripe Checkout configuration options](https://stripe.com/docs/checkout#integration-custom)
 are supported. If you notice anything missing please open an issue.
@@ -63,11 +63,11 @@ export default Ember.Controller.extend({
 
 List of all actions:
 
-Action                | Purpose
---------------------- | -------------
-`onToken`             | The callback invoked when the Checkout process is complete.
-`onOpened`            | The callback invoked when Checkout is opened.
-`onClosed`            | The callback invoked when Checkout is closed.
+| Action     | Purpose                                                     |
+| ---------- | ----------------------------------------------------------- |
+| `onToken`  | The callback invoked when the Checkout process is complete. |
+| `onOpened` | The callback invoked when Checkout is opened.               |
+| `onClosed` | The callback invoked when Checkout is closed.               |
 
 
 ## Configuration
@@ -96,8 +96,9 @@ Multiple Stripe keys are supported, when passed directly to the component.
 
 ## Compatibility
 
-* Ember.js v2.18 or above
+* Ember.js v3.4 or above
 * Ember CLI v2.13 or above
+* Node.js v8 or above
 
 For versions of Ember older than 1.13, use version `0.4.0` and check the [old docs](https://github.com/smile-io/ember-cli-stripe/blob/v0.4.0/README.md).
 
