@@ -1,5 +1,8 @@
 {
   "extends": [
-    "@smile-io"
+    "@smile-io",
+    "@smile-io:groupLinters",
+    "@smile-io:groupFormatters",
+    "@smile-io:groupChangesets"
   ]
 }
