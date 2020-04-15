@@ -1,5 +1,5 @@
 {
   "extends": [
-    "github>smile-io/renovate-config"
+    "github>smile-io/renovate-config:base"
   ]
 }
