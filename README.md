@@ -2,7 +2,6 @@
 
 ![Preview](https://user-images.githubusercontent.com/160955/42161490-d734da26-7e03-11e8-97ca-761285ac2dff.png)
 
-
 ## Description
 
 Simplest way to implement card payments in your Ember app.
@@ -46,7 +45,7 @@ are supported. If you notice anything missing please open an issue.
 The primary action of this component, `onToken` is called when the Stripe checkout succeeds. Its main param is a [Stripe Token](https://stripe.com/docs/api#tokens) object.
 
 ```javascript
-import Ember from 'ember';
+import Ember from "ember";
 
 export default Ember.Controller.extend({
   actions: {
@@ -56,8 +55,8 @@ export default Ember.Controller.extend({
      */
     processStripeToken(token, args) {
       // Send token to the server to associate with account/user/etc
-    }
-  }
+    },
+  },
 });
 ```
 
@@ -69,8 +68,8 @@ List of all actions:
 | `onOpened` | The callback invoked when Checkout is opened.               |
 | `onClosed` | The callback invoked when Checkout is closed.               |
 
-
 ## Configuration
+
 All Stripe Checkout configuration options can be set in your apps config.
 
 In most cases, you will want to add at least your Stripe **publishable key** to your app's config, but this can be set as a property on the component too.
@@ -89,34 +88,30 @@ module.exports = function(environment) {
 };
 ```
 
-**Note:** If Stripe options are set in the *environment.js* file **and** when invoking the component, the later value will win.
+**Note:** If Stripe options are set in the _environment.js_ file **and** when invoking the component, the later value will win.
 
 Multiple Stripe keys are supported, when passed directly to the component.
 
-
 ## Compatibility
 
-* Ember.js v3.4 or above
-* Ember CLI v2.13 or above
-* Node.js v8 or above
+- Ember.js v3.12 or above
+- Ember CLI v2.13 or above
+- Node.js v10 or above
 
 ### For older versions of Ember.js
 
 | Ember.js version | ember-cli-stripe version |
 | ---------------- | ------------------------ |
+| `3.4+`           | `3.x`                    |
 | `2.18+`          | `2.x`                    |
 | `1.13+`          | `0.x`                    |
 
 **Note:** At your own risk, feel free to try current version, it might still work.
 
-
-Contributing
-------------------------------------------------------------------------------
+## Contributing
 
 See the [Contributing](CONTRIBUTING.md) guide for details.
 
-
-License
-------------------------------------------------------------------------------
+## License
 
 This project is licensed under the [MIT License](LICENSE.md).
