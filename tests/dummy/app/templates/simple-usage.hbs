@@ -1,8 +1,8 @@
 {{!- BEGIN-SNIPPET simple-usage }}
-{{stripe-checkout
-  amount=1000
-  onToken=(action "checkoutToken")
-}}
+<StripeCheckout
+  @amount={{1000}}
+  @onToken={{this.checkoutToken}}
+/>
 {{!- END-SNIPPET }}
 
 <h2>Simple usage</h2>
@@ -10,9 +10,10 @@
   In the most simplest use-case, all you need is to render the <b>stripe-checkout</b>
   component passing any options supported by
   <a href="https://stripe.com/docs/checkout#integration-custom">Stripe Checkout</a>.
-  {{code-snippet name="simple-usage.hbs"}}
+  <CodeSnippet @name="simple-usage.hbs" />
 </p>
+
 <p>
   You'll probably want to pass at least the <i>amount</i> and handle <i>onToken</i> action.
-  {{code-snippet name="simple-usage-actions.js"}}
+  <CodeSnippet @name="simple-usage-actions.js" />
 </p>
