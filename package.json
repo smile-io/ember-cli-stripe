@@ -77,7 +77,7 @@
     "configPath": "tests/dummy/config"
   },
   "volta": {
-    "node": "12.16.2",
+    "node": "12.18.0",
     "yarn": "1.22.4"
   }
 }
