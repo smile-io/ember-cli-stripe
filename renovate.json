@@ -1,5 +1,3 @@
 {
-  "extends": [
-    "@smile-io"
-  ]
+  "extends": ["@smile-io:addon"]
 }
