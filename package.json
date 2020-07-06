@@ -32,7 +32,7 @@
   },
   "dependencies": {
     "ember-cli-babel": "^7.18.0",
-    "ember-cli-htmlbars": "^4.2.3",
+    "ember-cli-htmlbars": "^5.0.0",
     "ember-invoke-action": "^1.5.1"
   },
   "devDependencies": {
@@ -54,7 +54,7 @@
     "ember-maybe-import-regenerator": "^0.1.6",
     "ember-prism": "^0.6.1",
     "ember-qunit": "^4.6.0",
-    "ember-resolver": "^7.0.0",
+    "ember-resolver": "8.0.0",
     "ember-sinon-qunit": "^3.4.0",
     "ember-source": "~3.17.0",
     "ember-source-channel-url": "^2.0.1",
