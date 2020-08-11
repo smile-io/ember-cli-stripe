@@ -1,6 +1,6 @@
-import { module } from 'qunit';
+/* global sinon */
+import { module, test } from 'qunit';
 import { setupTest } from 'ember-qunit';
-import { test } from 'qunit';
 import { settled } from '@ember/test-helpers';
 import { run } from '@ember/runloop';
 import EmberObject from '@ember/object';
