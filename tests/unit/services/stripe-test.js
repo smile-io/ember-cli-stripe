@@ -1,6 +1,6 @@
-import { module } from 'qunit';
+/* global sinon */
+import { module, test } from 'qunit';
 import { setupTest } from 'ember-qunit';
-import test from 'ember-sinon-qunit/test-support/test';
 import { settled } from '@ember/test-helpers';
 import { run } from '@ember/runloop';
 import EmberObject from '@ember/object';
@@ -8,6 +8,7 @@ import { guidFor } from '@ember/object/internals';
 import { resolve } from 'rsvp';
 import config from '../../../config/environment';
 import StripeService from 'ember-cli-stripe/services/stripe';
+import setupSinon from 'ember-sinon-qunit';
 
 const stripeComponent = EmberObject.create({
   name: 'Best product',
@@ -17,6 +18,8 @@ let service;
 
 module('Unit | Service | stripe', function(hooks) {
   setupTest(hooks);
+
+  setupSinon();
 
   hooks.beforeEach(function() {
     const { stripe } = config;
@@ -63,8 +66,8 @@ module('Unit | Service | stripe', function(hooks) {
       configure() {},
       open() {}
     };
-    const openCheckoutSpy = this.sandbox.spy();
-    const configureCheckoutStub = this.sandbox.stub(window.StripeCheckout, 'configure');
+    const openCheckoutSpy = sinon.spy();
+    const configureCheckoutStub = sinon.stub(window.StripeCheckout, 'configure');
     configureCheckoutStub.returns({
       open: openCheckoutSpy
     });
@@ -80,12 +83,12 @@ module('Unit | Service | stripe', function(hooks) {
 
     let handlerOptions = {
       key: config.stripe.key,
-      token: this.sandbox.match.func,
-      opened: this.sandbox.match.func,
-      closed: this.sandbox.match.func,
+      token: sinon.match.func,
+      opened: sinon.match.func,
+      closed: sinon.match.func,
     };
-    this.sandbox.assert.calledWith(configureCheckoutStub, this.sandbox.match.object);
-    this.sandbox.assert.calledWith(configureCheckoutStub, this.sandbox.match(handlerOptions));
+    sinon.assert.calledWith(configureCheckoutStub, sinon.match.object);
+    sinon.assert.calledWith(configureCheckoutStub, sinon.match(handlerOptions));
 
     const stripeOptions = {
       key: config.stripe.key,
@@ -99,8 +102,8 @@ module('Unit | Service | stripe', function(hooks) {
       configure() {},
       open() {}
     };
-    const closeCheckoutSpy = this.spy();
-    const configureCheckoutStub = this.stub(window.StripeCheckout, 'configure');
+    const closeCheckoutSpy = sinon.spy();
+    const configureCheckoutStub = sinon.stub(window.StripeCheckout, 'configure');
     configureCheckoutStub.returns({
       close: closeCheckoutSpy
     });
