@@ -1,6 +1,5 @@
 /* global StripeCheckout */
 import Service from '@ember/service';
-import { getWithDefault } from '@ember/object';
 import { assign, merge } from '@ember/polyfills';
 import { guidFor } from '@ember/object/internals';
 import { isBlank, typeOf } from '@ember/utils';
@@ -79,7 +78,7 @@ export default Service.extend({
    * the component.
    */
   _stripeConfig(component) {
-    let stripeConfig = getWithDefault(this, 'stripeConfig', {});
+    let stripeConfig = this.stripeConfig || {};
     let options = {};
 
     if (assign) {

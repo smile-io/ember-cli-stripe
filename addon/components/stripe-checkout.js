@@ -56,20 +56,20 @@ export default Component.extend({
    * Opens the Stripe modal for payment.
    */
   openCheckout() {
-    this.get('stripe').open(this);
+    this.stripe.open(this);
   },
 
   closeCheckout() {
-    this.get('stripe').close(this);
+    this.stripe.close(this);
   },
 
   init() {
     this._super(...arguments);
-    this.get('stripe').registerComponent(this);
+    this.stripe.registerComponent(this);
   },
 
   didReceiveAttrs() {
-    if (this.get('showCheckout')) {
+    if (this.showCheckout) {
       this.openCheckout();
     }
   },
@@ -78,6 +78,6 @@ export default Component.extend({
     this._super(...arguments);
 
     this.closeCheckout();
-    this.get('stripe').unregisterComponent(this);
+    this.stripe.unregisterComponent(this);
   },
 });

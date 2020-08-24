@@ -43,7 +43,7 @@ module('Integration | Component | stripe checkout', function(hooks) {
   test('it opens Stripe Checkout when button is clicked', async function(assert) {
     assert.expect(1);
 
-    this.get('stripe').set('open', () => {
+    this.stripe.set('open', () => {
       assert.ok('calls Stripe service with _self as param');
     });
 
@@ -54,7 +54,7 @@ module('Integration | Component | stripe checkout', function(hooks) {
   test('it opens Stripe Checkout when `showCheckout` is true', async function(assert) {
     assert.expect(1);
 
-    this.get('stripe').set('open', () => {
+    this.stripe.set('open', () => {
       assert.ok('calls Stripe service with _self as param');
     });
 
