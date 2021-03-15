@@ -52,7 +52,7 @@
     "ember-export-application-global": "2.0.1",
     "ember-load-initializers": "2.1.2",
     "ember-maybe-import-regenerator": "0.1.6",
-    "ember-prism": "0.7.0",
+    "ember-prism": "0.9.1",
     "ember-qunit": "4.6.0",
     "ember-resolver": "8.0.2",
     "ember-sinon-qunit": "5.0.0",
