@@ -1,3 +1,4 @@
 {
-  "extends": ["@smile-io:addon"]
+  "extends": ["@smile-io:addon"],
+  "enabled": false
 }
