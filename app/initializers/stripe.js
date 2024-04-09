@@ -5,7 +5,6 @@ export function initialize() {
   const { stripe = {} } = config;
 
   application.register('config:stripe', stripe, { instantiate: false });
-  application.inject('service:stripe', 'stripeConfig', 'config:stripe');
 }
 
 export default {
