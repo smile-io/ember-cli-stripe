@@ -102,6 +102,7 @@ Multiple Stripe keys are supported, when passed directly to the component.
 
 | Ember.js version | ember-cli-stripe version |
 | ---------------- | ------------------------ |
+| `4+`             | `4.x`                    |
 | `3.4+`           | `3.x`                    |
 | `2.18+`          | `2.x`                    |
 | `1.13+`          | `0.x`                    |
