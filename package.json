@@ -1,6 +1,6 @@
 {
   "name": "ember-cli-stripe",
-  "version": "3.0.0",
+  "version": "4.0.0",
   "description": "Stripe checkout for Ember",
   "keywords": [
     "ember-addon",
