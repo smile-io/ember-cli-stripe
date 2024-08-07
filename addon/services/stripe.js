@@ -1,16 +1,14 @@
 /* global StripeCheckout */
-import Service from '@ember/service';
-import { assign, merge } from '@ember/polyfills';
-import { guidFor } from '@ember/object/internals';
-import { isBlank, typeOf } from '@ember/utils';
-import { deprecate } from '@ember/debug';
-import { invokeAction } from 'ember-invoke-action';
-import RSVP from 'rsvp';
-import stripeConfigOptions from '../utils/configuration-options';
-import { getOwner } from '@ember/application';
+import Service from "@ember/service";
+import { guidFor } from "@ember/object/internals";
+import { isBlank, typeOf } from "@ember/utils";
+import { deprecate } from "@ember/debug";
+import { invokeAction } from "ember-invoke-action";
+import RSVP from "rsvp";
+import stripeConfigOptions from "../utils/configuration-options";
+import { getOwner } from "@ember/application";
 
 export default Service.extend({
-
   /*
    * Registers a component as the current target of this service.
    * When the first {{stripe-checkout}} component is registered we load
@@ -64,7 +62,7 @@ export default Service.extend({
     this._alive = {};
     this._scriptLoaded = false;
     this._scriptLoading = false;
-    this.stripeConfig = getOwner(this).lookup('config:stripe');
+    this.stripeConfig = getOwner(this).lookup("config:stripe");
   },
 
   /**
@@ -81,60 +79,56 @@ export default Service.extend({
    */
   _stripeConfig(component) {
     let stripeConfig = this.stripeConfig || {};
-    let options = {};
-
-    if (assign) {
-      assign(options, stripeConfig, this._componentStripeConfig(component));
-    } else {
-      // Support for Ember <= 2.4 (when assign was introduced)
-      merge(options, stripeConfig);
-      merge(options, this._componentStripeConfig(component));
-    }
+    let options = Object.assign(
+      {},
+      stripeConfig,
+      this._componentStripeConfig(component)
+    );
 
     return this._cleanupOptions(options);
   },
 
   _stripeHandler(component) {
     let componentGuid = guidFor(component);
-    if ('handler' in this._alive[componentGuid]) {
-      return this._alive[componentGuid]['handler'];
+    if ("handler" in this._alive[componentGuid]) {
+      return this._alive[componentGuid]["handler"];
     }
 
     let stripeConfig = this._stripeConfig(component);
-    if (!('key' in stripeConfig)) {
-      throw new Error('[ember-cli-stripe] Missing required `key` param');
+    if (!("key" in stripeConfig)) {
+      throw new Error("[ember-cli-stripe] Missing required `key` param");
     }
 
     let handler = StripeCheckout.configure({
       key: stripeConfig.key,
       token() {
-        invokeAction(component, 'onToken', ...arguments);
+        invokeAction(component, "onToken", ...arguments);
 
         // Add deprecation for previous `action` callback
         if (!isBlank(component.attrs.action)) {
           deprecate(
-            'Using `action` callback is deprecated and will be removed in future versions. Please use `onToken` with a closure action instead',
+            "Using `action` callback is deprecated and will be removed in future versions. Please use `onToken` with a closure action instead",
             false,
             {
-              id: 'ember-cli-stripe.action-callback',
-              since: '0.0.1',
-              until: '1.1.0',
-              for: 'ember-smile-source',
+              id: "ember-cli-stripe.action-callback",
+              since: "0.0.1",
+              until: "1.1.0",
+              for: "ember-smile-source",
             }
           );
 
-          invokeAction(component, 'action', ...arguments);
+          invokeAction(component, "action", ...arguments);
         }
       },
       opened() {
-        invokeAction(component, 'onOpened');
+        invokeAction(component, "onOpened");
       },
       closed() {
-        invokeAction(component, 'onClosed');
-      }
+        invokeAction(component, "onClosed");
+      },
     });
 
-    this._alive[componentGuid]['handler'] = handler;
+    this._alive[componentGuid]["handler"] = handler;
 
     return handler;
   },
@@ -146,10 +140,10 @@ export default Service.extend({
 
     this._scriptLoading = true;
 
-    let script = document.createElement('script');
-    script.src = 'https://checkout.stripe.com/checkout.js';
+    let script = document.createElement("script");
+    script.src = "https://checkout.stripe.com/checkout.js";
     script.async = true;
-    script.type = 'text/javascript';
+    script.type = "text/javascript";
 
     this._stripeScriptPromise = new RSVP.Promise((resolve, reject) => {
       script.onload = () => {
@@ -158,7 +152,7 @@ export default Service.extend({
         this.onScriptLoaded();
       };
       script.onerror = () => {
-        this._invokeAction('onStripeLoadError', ...arguments);
+        this._invokeAction("onStripeLoadError", ...arguments);
         reject();
       };
 
@@ -168,16 +162,14 @@ export default Service.extend({
     return this._stripeScriptPromise;
   },
 
-  onScriptLoaded() {
-  },
+  onScriptLoaded() {},
 
-  onStripeLoadError() {
-  },
+  onStripeLoadError() {},
 
   _cleanupOptions(options) {
     let cleanedOptions = {};
     for (let key in options) {
-      if (typeOf(options[key]) !== 'undefined') {
+      if (typeOf(options[key]) !== "undefined") {
         cleanedOptions[key] = options[key];
       }
     }
