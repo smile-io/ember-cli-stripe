@@ -18,18 +18,12 @@ jobs:
     timeout-minutes: 10
 
     steps:
-      - uses: actions/checkout@v3
-      - name: Install Node
-        uses: actions/setup-node@v3
-        with:
-          node-version: 14.x
-          cache: npm
-      - name: Install Dependencies
-        run: npm ci
+      - uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4
+      - uses: wyvox/action-setup-pnpm@dec4af68ac0a63b2f3cce8ee6d3e9ec5b0e75cec # v3
       - name: Lint
-        run: npm run lint
+        run: pnpm lint
       - name: Run Tests
-        run: npm run test:ember
+        run: pnpm test:ember
 
   floating:
     name: "Floating Dependencies"
@@ -37,15 +31,13 @@ jobs:
     timeout-minutes: 10
 
     steps:
-      - uses: actions/checkout@v3
-      - uses: actions/setup-node@v3
+      - name: Checkout repository
+        uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4
+      - uses: wyvox/action-setup-pnpm@dec4af68ac0a63b2f3cce8ee6d3e9ec5b0e75cec # v3
         with:
-          node-version: 14.x
-          cache: npm
-      - name: Install Dependencies
-        run: npm install --no-shrinkwrap
+          args: '--no-lockfile'
       - name: Run Tests
-        run: npm run test:ember
+        run: pnpm test:ember
 
   try-scenarios:
     name: ${{ matrix.try-scenario }}
@@ -66,13 +58,8 @@ jobs:
           - embroider-optimized
 
     steps:
-      - uses: actions/checkout@v3
-      - name: Install Node
-        uses: actions/setup-node@v3
-        with:
-          node-version: 14.x
-          cache: npm
-      - name: Install Dependencies
-        run: npm ci
+      - name: Checkout repository
+        uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4
+      - uses: wyvox/action-setup-pnpm@dec4af68ac0a63b2f3cce8ee6d3e9ec5b0e75cec # v3
       - name: Run Tests
         run: ./node_modules/.bin/ember try:one ${{ matrix.try-scenario }}
