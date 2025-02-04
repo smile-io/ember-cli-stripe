@@ -4,13 +4,13 @@
 
 * `git clone <repository-url>`
 * `cd ember-cli-stripe`
-* `yarn install`
+* `pnpm install`
 
 ## Linting
 
-* `yarn lint:hbs`
-* `yarn lint:js`
-* `yarn lint:js --fix`
+* `pnpm lint:hbs`
+* `pnpm lint:js`
+* `pnpm lint:js --fix`
 
 ## Running tests
 
