@@ -1,15 +1,18 @@
-# Stripe checkout for Ember [![Build Status](https://travis-ci.org/smile-io/ember-cli-stripe.svg?branch=main)](http://travis-ci.org/smile-io/ember-cli-stripe)
+# ember-cli-stripe
+
+[![Build Status](https://travis-ci.org/smile-io/ember-cli-stripe.svg?branch=main)](http://travis-ci.org/smile-io/ember-cli-stripe)
 
 ![Preview](https://user-images.githubusercontent.com/160955/42161490-d734da26-7e03-11e8-97ca-761285ac2dff.png)
 
 ## Description
 
-Simplest way to implement card payments in your Ember app.
+Stripe checkout for Ember is the simplest way to implement card payments in your Ember app.
 
 This addon integrates Stripe's embedded payment form, Checkout.
 See [Stripe Checkout](https://stripe.com/docs/checkout#integration-custom) docs.
 
 The best documentation is the sample application in `tests/dummy`.
+
 
 ## Installation
 
@@ -36,6 +39,7 @@ ember install ember-cli-stripe
 | `label`        | Stripe Checkout button text.                               |
 | `isDisabled`   | When true, the Stripe Checkout button is disabled.         |
 | `showCheckout` | Can be used to open the Stripe Checkout modal dynamically. |
+
 
 Besides the above, all [Stripe Checkout configuration options](https://stripe.com/docs/checkout#integration-custom)
 are supported. If you notice anything missing please open an issue.
@@ -94,9 +98,9 @@ Multiple Stripe keys are supported, when passed directly to the component.
 
 ## Compatibility
 
-- Ember.js v3.12 or above
-- Ember CLI v2.13 or above
-- Node.js v10 or above
+* Ember.js v4.4 or above
+* Ember CLI v4.4 or above
+* Node.js v14 or above
 
 ### For older versions of Ember.js
 
