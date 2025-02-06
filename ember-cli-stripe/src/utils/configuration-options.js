@@ -105,4 +105,15 @@ const configurationOptions = [
   'alipayReusable',
 ];
 
-export default configurationOptions;
+const compactOptions = (options) => {
+  let cleanedOptions = {};
+  for (let key in options) {
+    if (typeof options[key] !== 'undefined') {
+      cleanedOptions[key] = options[key];
+    }
+  }
+
+  return cleanedOptions;
+};
+
+export { configurationOptions, compactOptions };

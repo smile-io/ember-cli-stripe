@@ -4,7 +4,9 @@ import { action } from '@ember/object';
 
 export default class AdvancedUsageController extends Controller {
   @action
-  checkoutToken(/*amount, token, args*/) {}
+  handleToken(/*amount, token, args*/) {
+    console.log(...arguments);
+  }
 
   @action
   checkoutOpened() {}

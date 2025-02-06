@@ -1,11 +1,26 @@
 // BEGIN-SNIPPET simple-usage-actions
 import Controller from '@ember/controller';
-import { action } from '@ember/object';
+import { tracked } from '@glimmer/tracking';
 
 export default class SimpleUsageController extends Controller {
-  @action
-  checkoutToken(/*token, args*/) {
-    debugger;
-  }
+  @tracked showCheckout = true;
+  amount = 1000;
+
+  handleClick = () => {
+    this.showCheckout = !this.showCheckout;
+  };
+
+  handleToken = (token) => {
+    console.log('StripeCheckout TOKEN', token);
+  };
+
+  handleOpened = () => {
+    console.log('StripeCheckout opened');
+  };
+
+  handleClosed = () => {
+    console.log('StripeCheckout closed');
+    this.showCheckout = false;
+  };
 }
 // END-SNIPPET

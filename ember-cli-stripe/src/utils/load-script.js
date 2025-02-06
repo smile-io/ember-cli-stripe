@@ -1,5 +1,3 @@
-import { run } from '@ember/runloop';
-
 const loadedScripts = {};
 
 /**
@@ -13,7 +11,7 @@ const loadedScripts = {};
  */
 export async function loadScript(
   url,
-  { async = true, onLoad = () => {}, onError = () => {} } = {}
+  { async = true, onLoad = () => {}, onError = () => {} } = {},
 ) {
   // Return cached promise if present
   if (loadedScripts[url]) {
@@ -31,18 +29,18 @@ export async function loadScript(
       'load',
       () => {
         onLoad();
-        return run(resolve);
+        resolve();
       },
-      false
+      false,
     );
     script.addEventListener(
       'error',
       () => {
         const error = new Error(`Could not load script: ${url}`);
         onError(error);
-        run(() => reject(error));
+        reject(error);
       },
-      false
+      false,
     );
 
     document.body.appendChild(script);

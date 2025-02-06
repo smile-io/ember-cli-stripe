@@ -42,6 +42,9 @@ importers:
       '@eslint/js':
         specifier: ^9.17.0
         version: 9.19.0
+      '@glimmer/component':
+        specifier: ^2.0.0
+        version: 2.0.0
       '@rollup/plugin-babel':
         specifier: ^6.0.4
         version: 6.0.4(@babel/core@7.26.7)(rollup@4.34.3)
@@ -51,6 +54,9 @@ importers:
       concurrently:
         specifier: ^9.1.2
         version: 9.1.2
+      ember-modifier:
+        specifier: ^4.2.0
+        version: 4.2.0(@babel/core@7.26.7)(ember-source@5.12.0(@glimmer/component@2.0.0)(rsvp@4.8.5))
       ember-source:
         specifier: ^5.4.0
         version: 5.12.0(@glimmer/component@2.0.0)(rsvp@4.8.5)
@@ -9952,6 +9958,18 @@ snapshots:
   ember-load-initializers@3.0.1(ember-source@6.2.0(@glimmer/component@2.0.0)(rsvp@4.8.5)(webpack@5.97.1)):
     dependencies:
       ember-source: 6.2.0(@glimmer/component@2.0.0)(rsvp@4.8.5)(webpack@5.97.1)
+
+  ember-modifier@4.2.0(@babel/core@7.26.7)(ember-source@5.12.0(@glimmer/component@2.0.0)(rsvp@4.8.5)):
+    dependencies:
+      '@embroider/addon-shim': 1.9.0
+      decorator-transforms: 2.3.0(@babel/core@7.26.7)
+      ember-cli-normalize-entity-name: 1.0.0
+      ember-cli-string-utils: 1.1.0
+    optionalDependencies:
+      ember-source: 5.12.0(@glimmer/component@2.0.0)(rsvp@4.8.5)
+    transitivePeerDependencies:
+      - '@babel/core'
+      - supports-color
 
   ember-modifier@4.2.0(@babel/core@7.26.7)(ember-source@6.2.0(@glimmer/component@2.0.0)(rsvp@4.8.5)(webpack@5.97.1)):
     dependencies:

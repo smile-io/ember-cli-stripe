@@ -3,5 +3,7 @@ import { action } from '@ember/object';
 
 export default class MultipleKeysUsageController extends Controller {
   @action
-  checkoutToken(/*amount, token, args*/) {}
+  checkoutToken(/*amount, token, args*/) {
+    console.log(...arguments);
+  }
 }

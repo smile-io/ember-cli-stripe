@@ -1,5 +1,13 @@
 {{! BEGIN-SNIPPET simple-usage }}
-<StripeCheckout @amount={{1000}} @onToken={{this.checkoutToken}} />
+<StripeCheckout
+  @label="Check this out"
+  @showCheckout={{this.showCheckout}}
+  @amount={{this.amount}}
+  @onClick={{this.handleClick}}
+  @onToken={{this.handleToken}}
+  @onOpened={{this.handleOpened}}
+  @onClosed={{this.handleClosed}}
+/>
 {{! END-SNIPPET }}
 {{!
 <h2>Simple usage</h2>
