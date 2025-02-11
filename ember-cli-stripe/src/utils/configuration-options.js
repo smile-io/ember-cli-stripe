@@ -107,8 +107,12 @@ const configurationOptions = [
 
 const compactOptions = (options) => {
   let cleanedOptions = {};
+
   for (let key in options) {
-    if (typeof options[key] !== 'undefined') {
+    if (
+      configurationOptions.includes(key) &&
+      typeof options[key] !== 'undefined'
+    ) {
       cleanedOptions[key] = options[key];
     }
   }

@@ -1,18 +1,18 @@
-import Service from '@ember/service';
 import { module, test } from 'qunit';
 import { setupRenderingTest } from 'ember-qunit';
 import { render, click } from '@ember/test-helpers';
-import hbs from 'htmlbars-inline-precompile';
+import { hbs } from 'ember-cli-htmlbars';
+import Service from '@ember/service';
 
-// Stub Stripe service
 class StripeStub extends Service {
-  registerComponent() {}
-  unregisterComponent() {}
-  open() {}
-  close() {}
+  openCalls = [];
+
+  async open(config) {
+    this.openCalls.push(config);
+  }
 }
 
-module('Integration | Component | stripe checkout', function (hooks) {
+module('Integration | Component | stripe-checkout', function (hooks) {
   setupRenderingTest(hooks);
 
   hooks.beforeEach(function () {
@@ -20,47 +20,147 @@ module('Integration | Component | stripe checkout', function (hooks) {
     this.stripe = this.owner.lookup('service:stripe');
   });
 
-  test('it renders', async function (assert) {
-    assert.expect(3);
-
+  test('renders with default label', async function (assert) {
     await render(hbs`<StripeCheckout />`);
+    assert.dom('button').hasText('Pay with card');
+  });
 
-    assert.dom('*').hasText('Pay with card', 'renders default button text');
+  test('renders with custom label', async function (assert) {
+    await render(hbs`<StripeCheckout @label="Custom Payment" />`);
+    assert.dom('button').hasText('Custom Payment');
+  });
 
-    await render(hbs`<StripeCheckout @label='Pay now' />`);
-
-    assert.dom('*').hasText('Pay now', 'renders passed button label text');
-
+  test('renders block content', async function (assert) {
     await render(hbs`
       <StripeCheckout>
-        Pay dude!
+        <img src="card.png" alt="card">
+        Pay Now
       </StripeCheckout>
     `);
-
-    assert.dom('*').hasText('Pay dude!', 'renders using block-form');
+    assert.dom('button').hasText('Pay Now');
+    assert.dom('img').exists();
   });
 
-  test('it opens Stripe Checkout when button is clicked', async function (assert) {
-    assert.expect(1);
+  test('handles disabled state', async function (assert) {
+    await render(hbs`<StripeCheckout @isDisabled={{true}} />`);
+    assert.dom('button').hasAttribute('disabled');
+  });
 
-    this.stripe.set('open', () => {
-      assert.ok('calls Stripe service with _self as param');
-    });
+  test('opens checkout on button click', async function (assert) {
+    this.config = {
+      key: 'test-key',
+      amount: 2000,
+      description: 'Test Purchase',
+    };
 
-    await render(hbs`<StripeCheckout />`);
+    await render(hbs`
+      <StripeCheckout
+        @key={{this.config.key}}
+        @amount={{this.config.amount}}
+        @description={{this.config.description}}
+      />`);
+
     await click('button');
+
+    assert.strictEqual(
+      this.stripe.openCalls.length,
+      1,
+      'stripe.open was called once',
+    );
+    assert.deepEqual(
+      this.stripe.openCalls[0],
+      {
+        ...this.config,
+        onToken: undefined,
+        onOpened: undefined,
+        onClosed: undefined,
+      },
+      'called with correct config',
+    );
   });
 
-  test('it opens Stripe Checkout when `showCheckout` is true', async function (assert) {
-    assert.expect(1);
+  test('auto-opens checkout when showCheckout is true', async function (assert) {
+    await render(hbs`<StripeCheckout @showCheckout={{true}} />`);
 
-    this.stripe.set('open', () => {
-      assert.ok('calls Stripe service with _self as param');
+    assert.strictEqual(this.stripe.openCalls.length, 1, 'auto-opens checkout');
+  });
+
+  test('forwards callbacks to stripe service', async function (assert) {
+    this.setProperties({
+      onToken: () => assert.step('token'),
+      onOpened: () => assert.step('opened'),
+      onClosed: () => assert.step('closed'),
     });
 
-    this.set('showCheckout', false);
-    await render(hbs`<StripeCheckout  @showCheckout={{this.showCheckout}} />`);
+    await render(hbs`
+      <StripeCheckout
+        @onToken={{this.onToken}}
+        @onOpened={{this.onOpened}}
+        @onClosed={{this.onClosed}}
+      />`);
 
-    this.set('showCheckout', true);
+    await click('button');
+
+    const config = this.stripe.openCalls[0];
+    config.onToken();
+    config.onOpened();
+    config.onClosed();
+
+    assert.verifySteps(
+      ['token', 'opened', 'closed'],
+      'callbacks are forwarded correctly',
+    );
+  });
+
+  test('forwards all valid stripe configuration options', async function (assert) {
+    this.config = {
+      key: 'test-key',
+      amount: 2000,
+      currency: 'EUR',
+      name: 'Test Store',
+      description: 'Test Purchase',
+      image: 'https://test.com/image.png',
+      locale: 'auto',
+      zipCode: true,
+      billingAddress: true,
+      shippingAddress: true,
+      email: 'test@example.com',
+      allowRememberMe: true,
+      bitcoin: false,
+      alipay: false,
+      alipayReusable: false,
+    };
+
+    await render(hbs`
+      <StripeCheckout
+        @key={{this.config.key}}
+        @amount={{this.config.amount}}
+        @currency={{this.config.currency}}
+        @name={{this.config.name}}
+        @description={{this.config.description}}
+        @image={{this.config.image}}
+        @locale={{this.config.locale}}
+        @zipCode={{this.config.zipCode}}
+        @billingAddress={{this.config.billingAddress}}
+        @shippingAddress={{this.config.shippingAddress}}
+        @email={{this.config.email}}
+        @allowRememberMe={{this.config.allowRememberMe}}
+        @bitcoin={{this.config.bitcoin}}
+        @alipay={{this.config.alipay}}
+        @alipayReusable={{this.config.alipayReusable}}
+      />`);
+
+    await click('button');
+
+    assert.deepEqual(
+      this.stripe.openCalls[0],
+      {
+        ...this.config,
+        onToken: undefined,
+        onOpened: undefined,
+        onClosed: undefined,
+      },
+      'forwards all valid config options',
+    );
   });
 });

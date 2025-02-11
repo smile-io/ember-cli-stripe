@@ -82,7 +82,9 @@
     "type": "addon",
     "app-js": {
       "./components/stripe-checkout.js": "./dist/_app_/components/stripe-checkout.js",
-      "./services/stripe.js": "./dist/_app_/services/stripe.js"
+      "./services/stripe.js": "./dist/_app_/services/stripe.js",
+      "./utils/configuration-options.js": "./dist/_app_/utils/configuration-options.js",
+      "./utils/load-script.js": "./dist/_app_/utils/load-script.js"
     }
   },
   "volta": {

@@ -1,9 +1,11 @@
 import Component from '@glimmer/component';
 import { inject as service } from '@ember/service';
-import { tracked } from '@glimmer/tracking';
 import { on } from '@ember/modifier';
-import { configurationOptions } from '../utils/configuration-options.js';
-import AttachStripeCheckout from '../modifiers/attach-stripe-checkout.js';
+import {
+  configurationOptions,
+  compactOptions,
+} from '../utils/configuration-options.js';
+import { modifier } from 'ember-modifier';
 
 /**
  * Stripe checkout component for accepting payments with
@@ -25,8 +27,6 @@ import AttachStripeCheckout from '../modifiers/attach-stripe-checkout.js';
 export default class StripeCheckout extends Component {
   @service stripe;
 
-  @tracked isOpen = false;
-
   /**
    * Stripe checkout button text.
    */
@@ -35,34 +35,35 @@ export default class StripeCheckout extends Component {
   }
 
   get stripeConfig() {
-    return Object.fromEntries(
-      configurationOptions.map((key) => [key, this.args[key]]),
-    );
+    return {
+      ...compactOptions(
+        Object.fromEntries(
+          configurationOptions.map((key) => [key, this.args[key]]),
+        ),
+      ),
+      onToken: this.args.onToken,
+      onOpened: this.args.onOpened,
+      onClosed: this.args.onClosed,
+    };
   }
 
-  toggleCheckout = () => {
-    this.isOpen = !this.isOpen;
+  handleClick = () => {
+    this.stripe.open(this.stripeConfig);
   };
 
-  handleClosed = () => {
-    this.toggleCheckout();
-    this.args.onClosed?.();
-  };
+  autoOpenCheckout = modifier((element, [autoOpen]) => {
+    if (autoOpen) {
+      this.handleClick();
+    }
+  });
 
   <template>
     <button
-      {{AttachStripeCheckout
-        @showCheckout
-        onToken=@onToken
-        onOpened=@onOpened
-        onClosed=this.handleClosed
-        onScriptLoad=@onScriptLoad
-        onScriptLoadError=@onScriptLoadError
-      }}
       class="stripe-checkout"
       type="button"
       disabled={{@isDisabled}}
-      {{on "click" @onClick}}
+      {{this.autoOpenCheckout @showCheckout}}
+      {{on "click" this.handleClick}}
     >
       {{#if (has-block)}}
         {{yield}}
