@@ -1,6 +1,9 @@
 {
   "private": true,
-  "repository": "",
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:smile-io/ember-cli-stripe.git"
+  },
   "license": "MIT",
   "author": "",
   "scripts": {
@@ -13,12 +16,13 @@
     "start:test-app": "pnpm --filter test-app start",
     "test": "pnpm --filter '*' test"
   },
-  "packageManager": "pnpm@10.2.1",
   "devDependencies": {
     "concurrently": "^8.2.0",
     "prettier": "^3.0.3",
-    "prettier-plugin-ember-template-tag": "^2.0.2"
+    "prettier-plugin-ember-template-tag": "^2.0.2",
+    "release-plan": "^0.11.0"
   },
+  "packageManager": "pnpm@10.2.1",
   "volta": {
     "node": "22.14.0",
     "pnpm": "10.4.0"
