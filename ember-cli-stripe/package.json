@@ -12,7 +12,8 @@
   ],
   "repository": {
     "type": "git",
-    "url": "https://github.com/smile-io/ember-cli-stripe"
+    "url": "https://github.com/smile-io/ember-cli-stripe",
+    "directory": "ember-cli-stripe"
   },
   "license": "MIT",
   "author": "Smile.io <devs@smile.io>",
@@ -39,6 +40,14 @@
     "prepack": "rollup --config",
     "start": "rollup --config --watch",
     "test": "echo 'A v2 addon does not have tests, run tests in test-app'"
+  },
+  "release-plan": {
+    "semverIncrementAs": {
+      "major": "prerelease",
+      "minor": "prerelease",
+      "patch": "prerelease"
+    },
+    "semverIncrementTag": "alpha"
   },
   "dependencies": {
     "@embroider/addon-shim": "^1.9.0",
