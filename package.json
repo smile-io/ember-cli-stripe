@@ -26,5 +26,10 @@
   "volta": {
     "node": "22.14.0",
     "pnpm": "10.4.0"
+  },
+  "pnpm": {
+    "overrides": {
+      "micromatch>braces": "3.0.3"
+    }
   }
 }
