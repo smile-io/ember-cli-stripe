@@ -29,7 +29,9 @@
   },
   "pnpm": {
     "overrides": {
-      "micromatch>braces": "3.0.3"
+      "micromatch>braces": "3.0.3",
+      "broccoli>ansi-html": "0.0.8",
+      "broccoli-middleware>ansi-html": "0.0.8"
     }
   }
 }
