@@ -26,5 +26,12 @@
   "volta": {
     "node": "22.14.0",
     "pnpm": "10.4.0"
+  },
+  "pnpm": {
+    "overrides": {
+      "micromatch@3.1.10>braces": "3.0.3",
+      "broccoli@3.5.2>ansi-html": "0.0.8",
+      "broccoli-middleware@2.1.1>ansi-html": "0.0.8"
+    }
   }
 }
