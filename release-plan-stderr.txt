@@ -1,0 +1,10 @@
+Warning: unknown package "test-app"
+# Unlabeled Changes
+
+* Other
+  * [#209](https://github.com/smile-io/ember-cli-stripe/pull/209) ACT-257 Handle braces and ansi-html package security vulnerability ([@diegonakamashi](https://github.com/diegonakamashi))
+* `test-app`
+  * [#207](https://github.com/smile-io/ember-cli-stripe/pull/207) ACT-256 Remove ember-fetch from test-app ([@diegonakamashi](https://github.com/diegonakamashi))
+
+
+*Cannot plan release until the above changes are labeled*.
