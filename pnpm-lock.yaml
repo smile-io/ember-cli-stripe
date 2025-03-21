@@ -42,8 +42,8 @@ importers:
         specifier: ^7.26.5
         version: 7.26.5(@babel/core@7.26.7)(eslint@9.19.0)
       '@babel/runtime':
-        specifier: ^7.26.7
-        version: 7.26.7
+        specifier: ^7.26.10
+        version: 7.26.10
       '@embroider/addon-dev':
         specifier: ^7.1.1
         version: 7.1.1(rollup@4.34.3)
@@ -813,8 +813,8 @@ packages:
   '@babel/runtime@7.12.18':
     resolution: {integrity: sha512-BogPQ7ciE6SYAUPtlm9tWbgI9+2AgqSam6QivMgXgAT+fKbgppaj4ZX15MHeLC1PVF5sNk70huBu20XxWOs8Cg==}
 
-  '@babel/runtime@7.26.7':
-    resolution: {integrity: sha512-AOPI3D+a8dXnja+iwsUqGRjr1BbZIe771sXdapOtYI531gSqpi92vXivKcq2asu/DFpdl1ceFAKZyRzK2PCVcQ==}
+  '@babel/runtime@7.26.10':
+    resolution: {integrity: sha512-2WJMeRQPHKSPemqk/awGrAiuFfzBmOIPXKizAsVhWH9YJqLZ0H+HS4c8loHGgW6utJ3E/ejXQUsiGaQy2NZ9Fw==}
     engines: {node: '>=6.9.0'}
 
   '@babel/template@7.25.9':
@@ -7480,7 +7480,7 @@ snapshots:
     dependencies:
       regenerator-runtime: 0.13.11
 
-  '@babel/runtime@7.26.7':
+  '@babel/runtime@7.26.10':
     dependencies:
       regenerator-runtime: 0.14.1
 
@@ -9907,7 +9907,7 @@ snapshots:
 
   date-fns@2.30.0:
     dependencies:
-      '@babel/runtime': 7.26.7
+      '@babel/runtime': 7.26.10
 
   date-fns@3.6.0: {}
 
@@ -12122,7 +12122,7 @@ snapshots:
 
   is-language-code@3.1.0:
     dependencies:
-      '@babel/runtime': 7.26.7
+      '@babel/runtime': 7.26.10
 
   is-map@2.0.3: {}
 
@@ -13388,7 +13388,7 @@ snapshots:
 
   regenerator-transform@0.15.2:
     dependencies:
-      '@babel/runtime': 7.26.7
+      '@babel/runtime': 7.26.10
 
   regex-not@1.0.2:
     dependencies:
