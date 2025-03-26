@@ -35,7 +35,8 @@
       "ember-cli-babel>@babel/runtime": "7.26.10",
       "@babel/helpers": "7.26.10",
       "sane@4.1.0>micromatch": "4.0.8",
-      "anymatch@2.0.0>micromatch": "4.0.8"
+      "anymatch@2.0.0>micromatch": "4.0.8",
+      "package-json@6.5.0>got": "11.8.5"
     }
   }
 }
