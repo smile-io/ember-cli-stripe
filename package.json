@@ -20,7 +20,7 @@
     "concurrently": "^8.2.0",
     "prettier": "^3.0.3",
     "prettier-plugin-ember-template-tag": "^2.0.2",
-    "release-plan": "^0.11.0"
+    "release-plan": "^0.16.0"
   },
   "packageManager": "pnpm@10.2.1",
   "volta": {
@@ -32,7 +32,11 @@
       "micromatch@3.1.10>braces": "3.0.3",
       "broccoli@3.5.2>ansi-html": "0.0.8",
       "broccoli-middleware@2.1.1>ansi-html": "0.0.8",
-      "ember-cli-babel>@babel/runtime": "7.26.10"
+      "ember-cli-babel>@babel/runtime": "7.26.10",
+      "@babel/helpers": "7.26.10",
+      "sane@4.1.0>micromatch": "4.0.8",
+      "anymatch@2.0.0>micromatch": "4.0.8",
+      "package-json@6.5.0>got": "11.8.5"
     }
   }
 }
