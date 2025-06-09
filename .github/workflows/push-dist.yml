@@ -17,8 +17,8 @@ jobs:
     name: Push dist
     runs-on: ubuntu-latest
     timeout-minutes: 10
-    env:
-      SMILE_GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+    permissions:
+      contents: write
 
     steps:
       - uses: actions/checkout@v4
