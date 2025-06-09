@@ -17,6 +17,8 @@ jobs:
     name: Push dist
     runs-on: ubuntu-latest
     timeout-minutes: 10
+    env:
+      SMILE_GITHUB_TOKEN: ${{ secrets.PACKAGE_REGISTRY_READ_TOKEN }}
 
     steps:
       - uses: actions/checkout@v4
