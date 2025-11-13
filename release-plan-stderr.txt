@@ -1,0 +1,7 @@
+# Unlabeled Changes
+
+* [#216](https://github.com/smile-io/ember-cli-stripe/pull/216) Fix 'tmp' low security vulnerability (CVE-2025-54798) ([@vladucu](https://github.com/vladucu))
+* [#215](https://github.com/smile-io/ember-cli-stripe/pull/215) Handle eslint security vulnerability ([@diegonakamashi](https://github.com/diegonakamashi))
+
+
+*Cannot plan release until the above changes are labeled*.
