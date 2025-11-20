@@ -5,20 +5,22 @@ settings:
   excludeLinksFromLockfile: false
 
 overrides:
-  micromatch@3.1.10>braces: 3.0.3
+  '@babel/helpers': 7.26.10
+  '@eslint/plugin-kit@<0.3.3': 0.3.3
+  '@eslint/plugin-kit@<0.3.4': '>=0.3.4'
+  anymatch@2.0.0>micromatch: 4.0.8
+  brace-expansion@>=1.0.0 <=1.1.11: 1.1.12
+  brace-expansion@>=2.0.0 <=2.0.1: 2.0.2
   broccoli@3.5.2>ansi-html: 0.0.8
   broccoli-middleware@2.1.1>ansi-html: 0.0.8
   ember-cli-babel>@babel/runtime: 7.26.10
-  '@babel/helpers': 7.26.10
-  sane@4.1.0>micromatch: 4.0.8
-  anymatch@2.0.0>micromatch: 4.0.8
-  package-json@6.5.0>got: 11.8.5
-  brace-expansion@>=1.0.0 <=1.1.11: 1.1.12
-  brace-expansion@>=2.0.0 <=2.0.1: 2.0.2
-  on-headers@<1.1.0: 1.1.0
-  '@eslint/plugin-kit@<0.3.3': 0.3.3
   form-data@<4.0.4: 4.0.4
-  '@eslint/plugin-kit@<0.3.4': '>=0.3.4'
+  glob@>=10.2.0 <10.5.0: 10.5.0
+  glob@>=11.0.0 <11.1.0: 11.1.0
+  micromatch@3.1.10>braces: 3.0.3
+  on-headers@<1.1.0: 1.1.0
+  package-json@6.5.0>got: 11.8.5
+  sane@4.1.0>micromatch: 4.0.8
   tmp@<=0.2.3: '>=0.2.4'
 
 importers:
@@ -3860,8 +3862,8 @@ packages:
   glob-to-regexp@0.4.1:
     resolution: {integrity: sha512-lkX1HJXwyMcprw/5YUZc2s7DrpAiHB21/V+E1rHUrVNokkvB6bqMzT0VfV6/86ZNabt1k14YOIaT7nDvOX3Iiw==}
 
-  glob@10.4.5:
-    resolution: {integrity: sha512-7Bv8RF0k6xjo7d4A/PxYLbUCfb6c+Vpd2/mB2yRDlew7Jb5hEXiCD9ibfO7wpk8i4sevK6DFny9h7EYbM3/sHg==}
+  glob@10.5.0:
+    resolution: {integrity: sha512-DfXN8DfhJ7NH3Oe7cFmu3NCu1wKbkReJ8TorzSAFbSKrlNaQSKfIzqYqVY8zlbs2NLBbWpRiU52GX2PbaBVNkg==}
     hasBin: true
 
   glob@5.0.15:
@@ -8143,7 +8145,7 @@ snapshots:
   '@npmcli/package-json@6.2.0':
     dependencies:
       '@npmcli/git': 6.0.3
-      glob: 10.4.5
+      glob: 10.5.0
       hosted-git-info: 8.1.0
       json-parse-even-better-errors: 4.0.0
       proc-log: 5.0.0
@@ -11528,7 +11530,7 @@ snapshots:
 
   glob-to-regexp@0.4.1: {}
 
-  glob@10.4.5:
+  glob@10.5.0:
     dependencies:
       foreground-child: 3.3.1
       jackspeak: 3.4.3
