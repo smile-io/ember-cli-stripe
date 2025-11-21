@@ -29,20 +29,22 @@
   },
   "pnpm": {
     "overrides": {
-      "micromatch@3.1.10>braces": "3.0.3",
+      "@babel/helpers": "7.26.10",
+      "@eslint/plugin-kit@<0.3.3": "0.3.3",
+      "@eslint/plugin-kit@<0.3.4": ">=0.3.4",
+      "anymatch@2.0.0>micromatch": "4.0.8",
+      "brace-expansion@>=1.0.0 <=1.1.11": "1.1.12",
+      "brace-expansion@>=2.0.0 <=2.0.1": "2.0.2",
       "broccoli@3.5.2>ansi-html": "0.0.8",
       "broccoli-middleware@2.1.1>ansi-html": "0.0.8",
       "ember-cli-babel>@babel/runtime": "7.26.10",
-      "@babel/helpers": "7.26.10",
-      "sane@4.1.0>micromatch": "4.0.8",
-      "anymatch@2.0.0>micromatch": "4.0.8",
-      "package-json@6.5.0>got": "11.8.5",
-      "brace-expansion@>=1.0.0 <=1.1.11": "1.1.12",
-      "brace-expansion@>=2.0.0 <=2.0.1": "2.0.2",
-      "on-headers@<1.1.0": "1.1.0",
-      "@eslint/plugin-kit@<0.3.3": "0.3.3",
       "form-data@<4.0.4": "4.0.4",
-      "@eslint/plugin-kit@<0.3.4": ">=0.3.4",
+      "glob@>=10.2.0 <10.5.0": "10.5.0",
+      "glob@>=11.0.0 <11.1.0": "11.1.0",
+      "micromatch@3.1.10>braces": "3.0.3",
+      "on-headers@<1.1.0": "1.1.0",
+      "package-json@6.5.0>got": "11.8.5",
+      "sane@4.1.0>micromatch": "4.0.8",
       "tmp@<=0.2.3": ">=0.2.4"
     }
   }
