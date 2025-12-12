@@ -1,0 +1,9 @@
+# Unlabeled Changes
+
+* [#219](https://github.com/smile-io/ember-cli-stripe/pull/219) Address 'js-yaml' medium security vulnerability ([@vladucu](https://github.com/vladucu))
+* [#217](https://github.com/smile-io/ember-cli-stripe/pull/217) Force glob 11.1.0 to patch CLI command injection vulnerability ([@marianoggf](https://github.com/marianoggf))
+* [#216](https://github.com/smile-io/ember-cli-stripe/pull/216) Fix 'tmp' low security vulnerability (CVE-2025-54798) ([@vladucu](https://github.com/vladucu))
+* [#215](https://github.com/smile-io/ember-cli-stripe/pull/215) Handle eslint security vulnerability ([@diegonakamashi](https://github.com/diegonakamashi))
+
+
+*Cannot plan release until the above changes are labeled*.
