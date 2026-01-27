@@ -1,0 +1,6 @@
+# Unlabeled Changes
+
+* [#222](https://github.com/smile-io/ember-cli-stripe/pull/222) Fix security vulnerabilities ([@diegonakamashi](https://github.com/diegonakamashi))
+
+
+*Cannot plan release until the above changes are labeled*.
