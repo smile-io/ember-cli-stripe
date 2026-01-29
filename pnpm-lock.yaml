@@ -6,8 +6,7 @@ settings:
 
 overrides:
   '@babel/helpers': 7.26.10
-  '@eslint/plugin-kit@<0.3.3': 0.3.3
-  '@eslint/plugin-kit@<0.3.4': '>=0.3.4'
+  '@eslint/plugin-kit@<0.3.4': ^0.3.4
   anymatch@2.0.0>micromatch: 4.0.8
   brace-expansion@>=1.0.0 <=1.1.11: 1.1.12
   brace-expansion@>=2.0.0 <=2.0.1: 2.0.2
@@ -22,12 +21,12 @@ overrides:
   package-json@6.5.0>got: 11.8.5
   sane@4.1.0>micromatch: 4.0.8
   qs@<6.14.1: ^6.14.1
-  tmp@<=0.2.3: '>=0.2.4'
+  tmp@<=0.2.3: ^0.2.4
   js-yaml@<3.14.2 <4.0.0: '>=3.14.2 <4.0.0'
-  js-yaml@>=4.0.0 <4.1.1: '>=4.1.1'
-  diff@<8.0.3: '>=8.0.3'
-  tar@<=7.5.3: '>=7.5.4'
-  lodash@>=4.0.0 <=4.17.22: '>=4.17.23'
+  js-yaml@>=4.0.0 <4.1.1: ^4.1.1
+  diff@<8.0.3: ^8.0.3
+  lodash@>=4.0.0 <=4.17.22: ^4.17.23
+  tar@<7.5.7: ^7.5.7
 
 importers:
 
@@ -2622,7 +2621,7 @@ packages:
       just: ^0.1.8
       liquid-node: ^3.0.1
       liquor: ^0.0.5
-      lodash: '>=4.17.23'
+      lodash: ^4.17.23
       marko: ^3.14.4
       mote: ^0.2.0
       mustache: ^4.0.1
@@ -6148,8 +6147,8 @@ packages:
     resolution: {integrity: sha512-Re10+NauLTMCudc7T5WLFLAwDhQ0JWdrMK+9B2M8zR5hRExKmsRDCBA7/aV/pNJFltmBFO5BAMlQFi/vq3nKOg==}
     engines: {node: '>=6'}
 
-  tar@7.5.6:
-    resolution: {integrity: sha512-xqUeu2JAIJpXyvskvU3uvQW8PAmHrtXp2KDuMJwQqW8Sqq0CaZBAQ+dKS3RBXVhU4wC5NjAdKrmh84241gO9cA==}
+  tar@7.5.7:
+    resolution: {integrity: sha512-fov56fJiRuThVFXD6o6/Q354S7pnWMJIVlDBYijsTNx6jKSE4pvrDTs6lUnmGvNyfJwFQQwWy3owKz1ucIhveQ==}
     engines: {node: '>=18'}
 
   temp@0.9.4:
@@ -9502,7 +9501,7 @@ snapshots:
       promise-inflight: 1.0.1
       rimraf: 3.0.2
       ssri: 8.0.1
-      tar: 7.5.6
+      tar: 7.5.7
       unique-filename: 1.1.1
     transitivePeerDependencies:
       - bluebird
@@ -14012,7 +14011,7 @@ snapshots:
 
   tapable@2.2.2: {}
 
-  tar@7.5.6:
+  tar@7.5.7:
     dependencies:
       '@isaacs/fs-minipass': 4.0.1
       chownr: 3.0.0
