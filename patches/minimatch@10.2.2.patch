@@ -1,0 +1,7 @@
+diff --git a/dist/commonjs/index.js b/dist/commonjs/index.js
+--- a/dist/commonjs/index.js
++++ b/dist/commonjs/index.js
+@@ -1033,2 +1033,3 @@
+ exports.minimatch.unescape = unescape_js_1.unescape;
++module.exports = exports.minimatch;
+ //# sourceMappingURL=index.js.map
