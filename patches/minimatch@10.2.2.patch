@@ -1,0 +1,14 @@
+diff --git a/dist/commonjs/index.js b/dist/commonjs/index.js
+--- a/dist/commonjs/index.js
++++ b/dist/commonjs/index.js
+@@ -1032,4 +1032,9 @@ exports.minimatch.AST = ast_js_1.AST;
+ exports.minimatch.Minimatch = Minimatch;
+ exports.minimatch.escape = escape_js_1.escape;
+ exports.minimatch.unescape = unescape_js_1.unescape;
++// Back-compat shim: CJS callers may expect require('minimatch') to be callable.
++const mm = exports.minimatch;
++Object.assign(mm, exports);
++mm.default = mm;
++module.exports = mm;
+ //# sourceMappingURL=index.js.map
+\ No newline at end of file
