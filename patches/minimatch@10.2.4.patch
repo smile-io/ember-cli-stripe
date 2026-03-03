@@ -1,7 +1,8 @@
 diff --git a/dist/commonjs/index.js b/dist/commonjs/index.js
+index c176ffce042b015b8cc5d29ba93ef301c885a237..f303b939afce4ac9387309f674aeca935bfde5a5 100644
 --- a/dist/commonjs/index.js
 +++ b/dist/commonjs/index.js
-@@ -1032,4 +1032,9 @@ exports.minimatch.AST = ast_js_1.AST;
+@@ -1118,4 +1118,9 @@ exports.minimatch.AST = ast_js_1.AST;
  exports.minimatch.Minimatch = Minimatch;
  exports.minimatch.escape = escape_js_1.escape;
  exports.minimatch.unescape = unescape_js_1.unescape;
@@ -11,4 +12,3 @@ diff --git a/dist/commonjs/index.js b/dist/commonjs/index.js
 +mm.default = mm;
 +module.exports = mm;
  //# sourceMappingURL=index.js.map
-\ No newline at end of file
