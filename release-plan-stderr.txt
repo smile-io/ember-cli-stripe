@@ -1,0 +1,111 @@
+release prepare
+
+Edits the package.json and changelog files to prepare for release.
+
+Options:
+  --version        Show version number                                 [boolean]
+  --help           Show help                                           [boolean]
+  --fromStdin      Read the summary of changes from stdin instead of building
+                   them from scratch.                                  [boolean]
+  --singlePackage  Allows you to run this command in a non monorepo and define
+                   the package name                                     [string]
+
+ExecaError: Command failed with exit code 1: node '/home/runner/work/ember-cli-stripe/ember-cli-stripe/node_modules/.pnpm/github-changelog@2.0.0/node_modules/github-changelog/bin/cli.js' --next-version Release
+
+/home/runner/work/ember-cli-stripe/ember-cli-stripe/node_modules/.pnpm/http-proxy-agent@4.0.1/node_modules/http-proxy-agent/dist/agent.js:19
+const once_1 = __importDefault(require("@tootallnate/once"));
+                               ^
+
+Error [ERR_REQUIRE_ESM]: require() of ES Module /home/runner/work/ember-cli-stripe/ember-cli-stripe/node_modules/.pnpm/@tootallnate+once@3.0.1/node_modules/@tootallnate/once/dist/index.js from /home/runner/work/ember-cli-stripe/ember-cli-stripe/node_modules/.pnpm/http-proxy-agent@4.0.1/node_modules/http-proxy-agent/dist/agent.js not supported.
+Instead change the require of index.js in /home/runner/work/ember-cli-stripe/ember-cli-stripe/node_modules/.pnpm/http-proxy-agent@4.0.1/node_modules/http-proxy-agent/dist/agent.js to a dynamic import() which is available in all CommonJS modules.
+    at Object.<anonymous> (/home/runner/work/ember-cli-stripe/ember-cli-stripe/node_modules/.pnpm/http-proxy-agent@4.0.1/node_modules/http-proxy-agent/dist/agent.js:19:32)
+    at Object.<anonymous> (/home/runner/work/ember-cli-stripe/ember-cli-stripe/node_modules/.pnpm/http-proxy-agent@4.0.1/node_modules/http-proxy-agent/dist/index.js:5:33)
+    at Object.<anonymous> (/home/runner/work/ember-cli-stripe/ember-cli-stripe/node_modules/.pnpm/make-fetch-happen@9.1.0/node_modules/make-fetch-happen/lib/agent.js:159:24)
+    at Object.<anonymous> (/home/runner/work/ember-cli-stripe/ember-cli-stripe/node_modules/.pnpm/make-fetch-happen@9.1.0/node_modules/make-fetch-happen/lib/remote.js:7:18)
+    at Object.<anonymous> (/home/runner/work/ember-cli-stripe/ember-cli-stripe/node_modules/.pnpm/make-fetch-happen@9.1.0/node_modules/make-fetch-happen/lib/cache/entry.js:11:16)
+    at Object.<anonymous> (/home/runner/work/ember-cli-stripe/ember-cli-stripe/node_modules/.pnpm/make-fetch-happen@9.1.0/node_modules/make-fetch-happen/lib/cache/index.js:2:20)
+    at Object.<anonymous> (/home/runner/work/ember-cli-stripe/ember-cli-stripe/node_modules/.pnpm/make-fetch-happen@9.1.0/node_modules/make-fetch-happen/lib/fetch.js:7:15)
+    at Object.<anonymous> (/home/runner/work/ember-cli-stripe/ember-cli-stripe/node_modules/.pnpm/make-fetch-happen@9.1.0/node_modules/make-fetch-happen/lib/index.js:4:15)
+    at Object.<anonymous> (/home/runner/work/ember-cli-stripe/ember-cli-stripe/node_modules/.pnpm/github-changelog@2.0.0/node_modules/github-changelog/lib/fetch.js:3:15)
+    at Object.<anonymous> (/home/runner/work/ember-cli-stripe/ember-cli-stripe/node_modules/.pnpm/github-changelog@2.0.0/node_modules/github-changelog/lib/github-api.js:14:17)
+    at Object.<anonymous> (/home/runner/work/ember-cli-stripe/ember-cli-stripe/node_modules/.pnpm/github-changelog@2.0.0/node_modules/github-changelog/lib/changelog.js:17:22)
+    at Object.<anonymous> (/home/runner/work/ember-cli-stripe/ember-cli-stripe/node_modules/.pnpm/github-changelog@2.0.0/node_modules/github-changelog/lib/cli.js:15:21)
+    at Object.<anonymous> (/home/runner/work/ember-cli-stripe/ember-cli-stripe/node_modules/.pnpm/github-changelog@2.0.0/node_modules/github-changelog/bin/cli.js:5:11) {
+  code: 'ERR_REQUIRE_ESM'
+}
+
+Node.js v18.20.8
+    at getFinalError (file:///home/runner/work/ember-cli-stripe/ember-cli-stripe/node_modules/.pnpm/execa@9.6.0/node_modules/execa/lib/return/final-error.js:6:9)
+    at makeError (file:///home/runner/work/ember-cli-stripe/ember-cli-stripe/node_modules/.pnpm/execa@9.6.0/node_modules/execa/lib/return/result.js:108:16)
+    at getAsyncResult (file:///home/runner/work/ember-cli-stripe/ember-cli-stripe/node_modules/.pnpm/execa@9.6.0/node_modules/execa/lib/methods/main-async.js:168:4)
+    at handlePromise (file:///home/runner/work/ember-cli-stripe/ember-cli-stripe/node_modules/.pnpm/execa@9.6.0/node_modules/execa/lib/methods/main-async.js:151:17)
+    at async gatherChanges (file:///home/runner/work/ember-cli-stripe/ember-cli-stripe/node_modules/.pnpm/release-plan@0.16.0/node_modules/release-plan/dist/gather-changes.js:8:20)
+    at async newChangelogContent (file:///home/runner/work/ember-cli-stripe/ember-cli-stripe/node_modules/.pnpm/release-plan@0.16.0/node_modules/release-plan/dist/cli.js:86:19)
+    at async Object.handler (file:///home/runner/work/ember-cli-stripe/ember-cli-stripe/node_modules/.pnpm/release-plan@0.16.0/node_modules/release-plan/dist/cli.js:14:36) {
+  shortMessage: "Command failed with exit code 1: node '/home/runner/work/ember-cli-stripe/ember-cli-stripe/node_modules/.pnpm/github-changelog@2.0.0/node_modules/github-changelog/bin/cli.js' --next-version Release",
+  command: 'node /home/runner/work/ember-cli-stripe/ember-cli-stripe/node_modules/.pnpm/github-changelog@2.0.0/node_modules/github-changelog/bin/cli.js --next-version Release',
+  escapedCommand: "node '/home/runner/work/ember-cli-stripe/ember-cli-stripe/node_modules/.pnpm/github-changelog@2.0.0/node_modules/github-changelog/bin/cli.js' --next-version Release",
+  cwd: '/home/runner/work/ember-cli-stripe/ember-cli-stripe',
+  durationMs: 300.128513,
+  failed: true,
+  timedOut: false,
+  isCanceled: false,
+  isGracefullyCanceled: false,
+  isTerminated: false,
+  isMaxBuffer: false,
+  isForcefullyTerminated: false,
+  exitCode: 1,
+  stdout: '',
+  stderr: '/home/runner/work/ember-cli-stripe/ember-cli-stripe/node_modules/.pnpm/http-proxy-agent@4.0.1/node_modules/http-proxy-agent/dist/agent.js:19\n' +
+    'const once_1 = __importDefault(require("@tootallnate/once"));\n' +
+    '                               ^\n' +
+    '\n' +
+    'Error [ERR_REQUIRE_ESM]: require() of ES Module /home/runner/work/ember-cli-stripe/ember-cli-stripe/node_modules/.pnpm/@tootallnate+once@3.0.1/node_modules/@tootallnate/once/dist/index.js from /home/runner/work/ember-cli-stripe/ember-cli-stripe/node_modules/.pnpm/http-proxy-agent@4.0.1/node_modules/http-proxy-agent/dist/agent.js not supported.\n' +
+    'Instead change the require of index.js in /home/runner/work/ember-cli-stripe/ember-cli-stripe/node_modules/.pnpm/http-proxy-agent@4.0.1/node_modules/http-proxy-agent/dist/agent.js to a dynamic import() which is available in all CommonJS modules.\n' +
+    '    at Object.<anonymous> (/home/runner/work/ember-cli-stripe/ember-cli-stripe/node_modules/.pnpm/http-proxy-agent@4.0.1/node_modules/http-proxy-agent/dist/agent.js:19:32)\n' +
+    '    at Object.<anonymous> (/home/runner/work/ember-cli-stripe/ember-cli-stripe/node_modules/.pnpm/http-proxy-agent@4.0.1/node_modules/http-proxy-agent/dist/index.js:5:33)\n' +
+    '    at Object.<anonymous> (/home/runner/work/ember-cli-stripe/ember-cli-stripe/node_modules/.pnpm/make-fetch-happen@9.1.0/node_modules/make-fetch-happen/lib/agent.js:159:24)\n' +
+    '    at Object.<anonymous> (/home/runner/work/ember-cli-stripe/ember-cli-stripe/node_modules/.pnpm/make-fetch-happen@9.1.0/node_modules/make-fetch-happen/lib/remote.js:7:18)\n' +
+    '    at Object.<anonymous> (/home/runner/work/ember-cli-stripe/ember-cli-stripe/node_modules/.pnpm/make-fetch-happen@9.1.0/node_modules/make-fetch-happen/lib/cache/entry.js:11:16)\n' +
+    '    at Object.<anonymous> (/home/runner/work/ember-cli-stripe/ember-cli-stripe/node_modules/.pnpm/make-fetch-happen@9.1.0/node_modules/make-fetch-happen/lib/cache/index.js:2:20)\n' +
+    '    at Object.<anonymous> (/home/runner/work/ember-cli-stripe/ember-cli-stripe/node_modules/.pnpm/make-fetch-happen@9.1.0/node_modules/make-fetch-happen/lib/fetch.js:7:15)\n' +
+    '    at Object.<anonymous> (/home/runner/work/ember-cli-stripe/ember-cli-stripe/node_modules/.pnpm/make-fetch-happen@9.1.0/node_modules/make-fetch-happen/lib/index.js:4:15)\n' +
+    '    at Object.<anonymous> (/home/runner/work/ember-cli-stripe/ember-cli-stripe/node_modules/.pnpm/github-changelog@2.0.0/node_modules/github-changelog/lib/fetch.js:3:15)\n' +
+    '    at Object.<anonymous> (/home/runner/work/ember-cli-stripe/ember-cli-stripe/node_modules/.pnpm/github-changelog@2.0.0/node_modules/github-changelog/lib/github-api.js:14:17)\n' +
+    '    at Object.<anonymous> (/home/runner/work/ember-cli-stripe/ember-cli-stripe/node_modules/.pnpm/github-changelog@2.0.0/node_modules/github-changelog/lib/changelog.js:17:22)\n' +
+    '    at Object.<anonymous> (/home/runner/work/ember-cli-stripe/ember-cli-stripe/node_modules/.pnpm/github-changelog@2.0.0/node_modules/github-changelog/lib/cli.js:15:21)\n' +
+    '    at Object.<anonymous> (/home/runner/work/ember-cli-stripe/ember-cli-stripe/node_modules/.pnpm/github-changelog@2.0.0/node_modules/github-changelog/bin/cli.js:5:11) {\n' +
+    "  code: 'ERR_REQUIRE_ESM'\n" +
+    '}\n' +
+    '\n' +
+    'Node.js v18.20.8',
+  stdio: [
+    undefined,
+    '',
+    '/home/runner/work/ember-cli-stripe/ember-cli-stripe/node_modules/.pnpm/http-proxy-agent@4.0.1/node_modules/http-proxy-agent/dist/agent.js:19\n' +
+      'const once_1 = __importDefault(require("@tootallnate/once"));\n' +
+      '                               ^\n' +
+      '\n' +
+      'Error [ERR_REQUIRE_ESM]: require() of ES Module /home/runner/work/ember-cli-stripe/ember-cli-stripe/node_modules/.pnpm/@tootallnate+once@3.0.1/node_modules/@tootallnate/once/dist/index.js from /home/runner/work/ember-cli-stripe/ember-cli-stripe/node_modules/.pnpm/http-proxy-agent@4.0.1/node_modules/http-proxy-agent/dist/agent.js not supported.\n' +
+      'Instead change the require of index.js in /home/runner/work/ember-cli-stripe/ember-cli-stripe/node_modules/.pnpm/http-proxy-agent@4.0.1/node_modules/http-proxy-agent/dist/agent.js to a dynamic import() which is available in all CommonJS modules.\n' +
+      '    at Object.<anonymous> (/home/runner/work/ember-cli-stripe/ember-cli-stripe/node_modules/.pnpm/http-proxy-agent@4.0.1/node_modules/http-proxy-agent/dist/agent.js:19:32)\n' +
+      '    at Object.<anonymous> (/home/runner/work/ember-cli-stripe/ember-cli-stripe/node_modules/.pnpm/http-proxy-agent@4.0.1/node_modules/http-proxy-agent/dist/index.js:5:33)\n' +
+      '    at Object.<anonymous> (/home/runner/work/ember-cli-stripe/ember-cli-stripe/node_modules/.pnpm/make-fetch-happen@9.1.0/node_modules/make-fetch-happen/lib/agent.js:159:24)\n' +
+      '    at Object.<anonymous> (/home/runner/work/ember-cli-stripe/ember-cli-stripe/node_modules/.pnpm/make-fetch-happen@9.1.0/node_modules/make-fetch-happen/lib/remote.js:7:18)\n' +
+      '    at Object.<anonymous> (/home/runner/work/ember-cli-stripe/ember-cli-stripe/node_modules/.pnpm/make-fetch-happen@9.1.0/node_modules/make-fetch-happen/lib/cache/entry.js:11:16)\n' +
+      '    at Object.<anonymous> (/home/runner/work/ember-cli-stripe/ember-cli-stripe/node_modules/.pnpm/make-fetch-happen@9.1.0/node_modules/make-fetch-happen/lib/cache/index.js:2:20)\n' +
+      '    at Object.<anonymous> (/home/runner/work/ember-cli-stripe/ember-cli-stripe/node_modules/.pnpm/make-fetch-happen@9.1.0/node_modules/make-fetch-happen/lib/fetch.js:7:15)\n' +
+      '    at Object.<anonymous> (/home/runner/work/ember-cli-stripe/ember-cli-stripe/node_modules/.pnpm/make-fetch-happen@9.1.0/node_modules/make-fetch-happen/lib/index.js:4:15)\n' +
+      '    at Object.<anonymous> (/home/runner/work/ember-cli-stripe/ember-cli-stripe/node_modules/.pnpm/github-changelog@2.0.0/node_modules/github-changelog/lib/fetch.js:3:15)\n' +
+      '    at Object.<anonymous> (/home/runner/work/ember-cli-stripe/ember-cli-stripe/node_modules/.pnpm/github-changelog@2.0.0/node_modules/github-changelog/lib/github-api.js:14:17)\n' +
+      '    at Object.<anonymous> (/home/runner/work/ember-cli-stripe/ember-cli-stripe/node_modules/.pnpm/github-changelog@2.0.0/node_modules/github-changelog/lib/changelog.js:17:22)\n' +
+      '    at Object.<anonymous> (/home/runner/work/ember-cli-stripe/ember-cli-stripe/node_modules/.pnpm/github-changelog@2.0.0/node_modules/github-changelog/lib/cli.js:15:21)\n' +
+      '    at Object.<anonymous> (/home/runner/work/ember-cli-stripe/ember-cli-stripe/node_modules/.pnpm/github-changelog@2.0.0/node_modules/github-changelog/bin/cli.js:5:11) {\n' +
+      "  code: 'ERR_REQUIRE_ESM'\n" +
+      '}\n' +
+      '\n' +
+      'Node.js v18.20.8'
+  ],
+  ipcOutput: [],
+  pipedFrom: []
+}
