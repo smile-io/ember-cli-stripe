@@ -61,3 +61,4 @@ if (macroCondition(isTesting())) {
 }
 
 export { loadScript };
+export default loadScript;

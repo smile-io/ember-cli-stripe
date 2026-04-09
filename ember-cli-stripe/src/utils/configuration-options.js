@@ -121,3 +121,4 @@ const compactOptions = (options) => {
 };
 
 export { configurationOptions, compactOptions };
+export default { configurationOptions, compactOptions };
