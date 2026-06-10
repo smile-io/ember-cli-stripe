@@ -1,0 +1,101 @@
+{
+  "name": "ember-cli-stripe",
+  "version": "4.0.1",
+  "description": "Stripe checkout for Ember",
+  "keywords": [
+    "ember-addon",
+    "stripe",
+    "stripe.js",
+    "stripejs",
+    "smile",
+    "smile.io"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/smile-io/ember-cli-stripe",
+    "directory": "ember-cli-stripe"
+  },
+  "license": "MIT",
+  "author": "Smile.io <devs@smile.io>",
+  "exports": {
+    ".": "./dist/index.js",
+    "./*": "./dist/*.js",
+    "./addon-main.js": "./addon-main.cjs"
+  },
+  "files": [
+    "addon-main.cjs",
+    "declarations",
+    "dist"
+  ],
+  "scripts": {
+    "build": "rollup --config",
+    "format": "prettier . --cache --write",
+    "lint": "concurrently \"pnpm:lint:*(!fix)\" --names \"lint:\" --prefixColors auto",
+    "lint:fix": "concurrently \"pnpm:lint:*:fix\" --names \"fix:\" --prefixColors auto && pnpm run format",
+    "lint:format": "prettier . --cache --check",
+    "lint:hbs": "ember-template-lint . --no-error-on-unmatched-pattern",
+    "lint:hbs:fix": "ember-template-lint . --fix --no-error-on-unmatched-pattern",
+    "lint:js": "eslint . --cache",
+    "lint:js:fix": "eslint . --fix",
+    "start": "rollup --config --watch",
+    "test": "echo 'A v2 addon does not have tests, run tests in test-app'"
+  },
+  "release-plan": {
+    "semverIncrementAs": {
+      "major": "prerelease",
+      "minor": "prerelease",
+      "patch": "prerelease"
+    },
+    "semverIncrementTag": "alpha"
+  },
+  "dependencies": {
+    "@embroider/addon-shim": "^1.9.0",
+    "decorator-transforms": "^2.3.0"
+  },
+  "devDependencies": {
+    "@babel/core": "7.26.7",
+    "@babel/eslint-parser": "^7.26.5",
+    "@babel/runtime": "^7.26.10",
+    "@embroider/addon-dev": "^7.1.1",
+    "@eslint/js": "^9.17.0",
+    "@glimmer/component": "^2.0.0",
+    "@rollup/plugin-babel": "^6.0.4",
+    "babel-plugin-ember-template-compilation": "^2.3.0",
+    "concurrently": "^9.1.2",
+    "ember-modifier": "^4.2.0",
+    "ember-source": "^6.2.0",
+    "ember-template-imports": "^4.3.0",
+    "ember-template-lint": "^6.1.0",
+    "eslint": "^9.17.0",
+    "eslint-config-prettier": "^9.1.0",
+    "eslint-plugin-ember": "^12.3.3",
+    "eslint-plugin-import": "^2.31.0",
+    "eslint-plugin-n": "^17.15.1",
+    "globals": "^15.14.0",
+    "prettier": "^3.4.2",
+    "prettier-plugin-ember-template-tag": "^2.0.4",
+    "rollup": "^4.22.5",
+    "rollup-plugin-copy": "^3.5.0"
+  },
+  "peerDependencies": {
+    "ember-source": ">= 4.12.0",
+    "ember-modifier": ">= 4.2.0"
+  },
+  "ember": {
+    "edition": "octane"
+  },
+  "ember-addon": {
+    "version": 2,
+    "main": "addon-main.cjs",
+    "type": "addon",
+    "app-js": {
+      "./components/stripe-checkout.js": "./dist/_app_/components/stripe-checkout.js",
+      "./services/stripe.js": "./dist/_app_/services/stripe.js",
+      "./utils/configuration-options.js": "./dist/_app_/utils/configuration-options.js",
+      "./utils/load-script.js": "./dist/_app_/utils/load-script.js"
+    }
+  },
+  "volta": {
+    "extends": "../package.json"
+  }
+}
