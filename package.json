@@ -73,7 +73,8 @@
       "shell-quote@>=1.1.0 <=1.8.3": "^1.8.4",
       "form-data@<4.0.6": "^4.0.6",
       "tar@<=7.5.15": "^7.5.16",
-      "js-yaml@<=4.1.1": "^4.2.0"
+      "js-yaml@<3.15.0": "^3.15.0",
+      "js-yaml@>=4.0.0 <=4.1.1": "^4.2.0"
     },
     "patchedDependencies": {
       "minimatch": "patches/minimatch@10.2.4.patch"
