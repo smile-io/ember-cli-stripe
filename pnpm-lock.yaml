@@ -51,6 +51,7 @@ overrides:
   tar@<=7.5.15: ^7.5.16
   js-yaml@<3.15.0: ^3.15.0
   js-yaml@>=4.0.0 <=4.1.1: ^4.2.0
+  morgan@>=1.2.0 <=1.10.1: ^1.11.0
 
 patchedDependencies:
   minimatch:
@@ -5052,8 +5053,8 @@ packages:
     resolution: {integrity: sha512-IXnMcJ6ZyTuhRmJSjzvHSRhlVPiN9Jwc6e59V0bEJ0ba6OBeX2L0E+mRN1QseeOF4mM+F1Rit6Nh7o+rl2Yn/A==}
     engines: {node: '>0.9'}
 
-  morgan@1.10.0:
-    resolution: {integrity: sha512-AbegBVI4sh6El+1gNwvD5YIck7nSA36weD7xvIxG4in80j/UoK8AEGaWnnz8v1GxonMCltmlNs5ZKbGvl9b1XQ==}
+  morgan@1.11.0:
+    resolution: {integrity: sha512-zSkVu3t18r39pw4ixfBKvfZi3y2UOqr7d4WYwcj3m8nXpEQK4rPO6GLzs/CExoRgmX3y9EjmmcXqv6jq0SK46g==}
     engines: {node: '>= 0.8.0'}
 
   ms@2.0.0:
@@ -10656,7 +10657,7 @@ snapshots:
       markdown-it: 14.2.0
       markdown-it-terminal: 0.4.0(markdown-it@14.2.0)
       minimatch: 10.2.4(patch_hash=3bda299b7a9c08eb9a8751d2d8b05776d7d0b273021fe9e17e522f1e6cdbb9f9)
-      morgan: 1.10.0
+      morgan: 1.11.0
       nopt: 3.0.6
       npm-package-arg: 12.0.2
       os-locale: 5.0.0
@@ -12945,12 +12946,12 @@ snapshots:
 
   mktemp@0.4.0: {}
 
-  morgan@1.10.0:
+  morgan@1.11.0:
     dependencies:
       basic-auth: 2.0.1
       debug: 2.6.9
       depd: 2.0.0
-      on-finished: 2.3.0
+      on-finished: 2.4.1
       on-headers: 1.1.0
     transitivePeerDependencies:
       - supports-color
