@@ -1,0 +1,7 @@
+# Unlabeled Changes
+
+* [#253](https://github.com/smile-io/ember-cli-stripe/pull/253) fix(deps): resolve 4 Dependabot security alerts via pnpm overrides ([@vladucu](https://github.com/vladucu))
+* [#251](https://github.com/smile-io/ember-cli-stripe/pull/251) Fix vulnerabilities ([@marianoggf](https://github.com/marianoggf))
+
+
+*Cannot plan release until the above changes are labeled*.
