@@ -1,0 +1,9 @@
+# Unlabeled Changes
+
+* [#256](https://github.com/smile-io/ember-cli-stripe/pull/256) ACT-2146: Fix js-yaml and nanoid vulnerabilities ([@diegonakamashi](https://github.com/diegonakamashi))
+* [#254](https://github.com/smile-io/ember-cli-stripe/pull/254) ACT-2042: Fix shell-quote, linkify-it, fast-uri, postcss, tar and body-parser vulnerabilities ([@diegonakamashi](https://github.com/diegonakamashi))
+* [#253](https://github.com/smile-io/ember-cli-stripe/pull/253) fix(deps): resolve 4 Dependabot security alerts via pnpm overrides ([@vladucu](https://github.com/vladucu))
+* [#251](https://github.com/smile-io/ember-cli-stripe/pull/251) Fix vulnerabilities ([@marianoggf](https://github.com/marianoggf))
+
+
+*Cannot plan release until the above changes are labeled*.
